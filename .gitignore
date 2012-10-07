@@ -1,0 +1,9 @@
+*.swp
+*.old
+*.pyc
+*.egg
+*-stamp
+build
+trace
+ppd.egg-info
+.idea
