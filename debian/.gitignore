@@ -1,0 +1,6 @@
+*.debhelper
+*.log
+*.substvars
+files
+python-pb-syslog
+python-pb-syslog-doc
