@@ -1,3 +1,10 @@
+python-pb-syslog (0.2.0-4) unstable; urgency=low
+
+  * Version bump
+  * Renamed pre- and post-install scripts
+
+ -- Frank Brehm <frank.brehm@profitbricks.com>  Mon, 08 Oct 2012 18:12:48 +0200
+
 python-pb-syslog (0.2.0-3) unstable; urgency=low
 
   * Version bump
