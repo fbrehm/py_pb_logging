@@ -44,7 +44,10 @@ lh_syslog = PbSysLogHandler(
         address = '/dev/log',
         facility = logging.handlers.SysLogHandler.LOG_USER,
 )
+lh_syslog.setFormatter(formatter_syslog)
+
 lh_console = logging.StreamHandler(sys.stderr)
+lh_console.setFormatter(formatter_console)
 
 logger.addHandler(lh_syslog)
 logger.addHandler(lh_console)
