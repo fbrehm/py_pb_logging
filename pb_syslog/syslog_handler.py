@@ -14,7 +14,9 @@
 import logging
 import logging.handlers
 import socket
+import sys
 
+from logging.handlers import SYSLOG_UDP_PORT
 from logging.handlers import SysLogHandler
 
 # Third party modules
@@ -35,9 +37,9 @@ class PbSysLogHandler(SysLogHandler):
     to avoid BOM errors in syslog messages.
     """
 
-   def __init__(self,
+    def __init__(self,
             address = ('localhost', SYSLOG_UDP_PORT),
-            facility = LOG_USER,
+            facility = SysLogHandler.LOG_USER,
             socktype = socket.SOCK_DGRAM,
             encoding = "utf-8",
             ):
@@ -56,7 +58,8 @@ class PbSysLogHandler(SysLogHandler):
         @param facility: syslog facility to use
         @type facility: int
         @param socktype: the socket type (socket.SOCK_DGRAM or
-                         socket.SOCK_STREAM) to use
+                         socket.SOCK_STREAM) to use.
+                         Not used in Python2 <= 2.6 and Python3 <= 3.1.
         @type socktype: int
         @param encoding: the character set to use to encode unicode messages
         @type encoding: str
@@ -64,7 +67,17 @@ class PbSysLogHandler(SysLogHandler):
         """
 
         # Initialisation of the parent object
-        super(PbSysLogHandler, self).__init__(address, facility, socktype)
+        do_socktype = False
+        if sys.version_info[0] > 2:
+            if sys.version_info[1] > 1:
+                do_socktype = True
+        else:
+            if sys.version_info[1] > 6:
+                do_socktype = True
+        if do_socktype:
+            SysLogHandler.__init__(self, address, facility, socktype)
+        else:
+            SysLogHandler.__init__(self, address, facility)
 
         self.encoding = encoding
         """ 
@@ -84,7 +97,7 @@ class PbSysLogHandler(SysLogHandler):
             msg = msg.encode(self.encoding)
             record.msg = msg
 
-        super(PbSysLogHandler, self).emit(record)
+        SysLogHandler.emit(self, record)
 
 #==============================================================================
 
