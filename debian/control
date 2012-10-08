@@ -18,4 +18,10 @@ Description: Python modules to extend logging mechanism.
    - PbSysLogHandler - to avoid BOM errors in syslog messages
    - UnixSyslogHandler - to support logging via syslog on systems without /dev/log
 
+Package: python-pb-syslog-doc
+Architecture: all
+Suggests: python-pb-syslog (= ${binary:Version}), pdf-viewer, www-browser
+Description: Python modules to extend logging mechanism - documentation
+ .
+ This package contains the module documentation in HTML and PDF format.
 

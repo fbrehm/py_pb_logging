@@ -1,3 +1,9 @@
+python-pb-syslog (0.2.0-3) unstable; urgency=low
+
+  * Version bump
+
+ -- Frank Brehm <frank.brehm@profitbricks.com>  Mon, 08 Oct 2012 18:04:42 +0200
+
 python-pb-syslog (0.2.0-2) unstable; urgency=low
 
   * Initial release.
