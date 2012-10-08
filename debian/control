@@ -1,0 +1,21 @@
+Source: python-pb-syslog
+Section: python
+Priority: extra
+Maintainer: Frank Brehm <frank.brehm@profitbricks.com>
+Build-Depends: debhelper (>= 7.0.50~), python-setuptools, python-epydoc, python-docutils,
+ python-support, texlive-latex-base, texlive-latex-extra
+Standards-Version: 3.8.4
+Vcs-Git: git+ssh://git.profitbricks.localdomain/srv/git/python/pb_syslog.git
+Vcs-Browser: http://git.profitbricks.localdomain/gitweb/?p=python/pb_syslog.git;a=summary
+
+Package: python-pb-syslog
+Architecture: all
+Depends: ${misc:Depends}, python, python-support
+Description: Python modules to extend logging mechanism.
+ .
+ The following objects are supported by this package:
+   - ColoredFormatter - for colored output on the system console
+   - PbSysLogHandler - to avoid BOM errors in syslog messages
+   - UnixSyslogHandler - to support logging via syslog on systems without /dev/log
+
+
