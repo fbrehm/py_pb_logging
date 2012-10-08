@@ -15,19 +15,15 @@ import logging
 import syslog
 import os.path
 import sys
-#import copy
 
 # Third party modules
 
 # Own modules
-#import pb_provisioning.common
-
-#from pb_provisioning.common import to_unicode_or_bust, to_utf8_or_bust
 
 __author__ = 'Frank Brehm <frank.brehm@profitbricks.com>'
 __copyright__ = '(C) 2010-2012 by profitbricks.com'
 __contact__ = 'frank.brehm@profitbricks.com'
-__version__ = '0.1.0'
+__version__ = '0.2.0'
 __license__ = 'GPL3'
 
 #==============================================================================
@@ -130,7 +126,8 @@ class UnixSyslogHandler(logging.Handler):
     }
 
     #--------------------------------------------------------------------------
-    def __init__(self, ident = None, logopt = LOG_PID, facility = LOG_USER):
+    def __init__(self, ident = None, logopt = LOG_PID, facility = LOG_USER,
+            encoding = "utf-8"):
         """
         Initialize a handler.
 
@@ -143,6 +140,8 @@ class UnixSyslogHandler(logging.Handler):
         @type logopt: int
         @param facility: syslog facility to use.
         @type facility: int
+        @param encoding: the character set to use to encode unicode messages
+        @type encoding: str
 
         """
 
@@ -173,6 +172,12 @@ class UnixSyslogHandler(logging.Handler):
         @type: int
         """
 
+        self.encoding = encoding
+        """
+        @ivar: the character set to use to encode unicode messages
+        @type: str
+        """
+
         self.formatter = None
 
         syslog.openlog(self.ident, self.logopt, self.facility)
@@ -187,7 +192,7 @@ class UnixSyslogHandler(logging.Handler):
         logging.Handler.close(self)
 
     #--------------------------------------------------------------------------
-    def map_priority(self, level_name):
+    def mapPriority(self, level_name):
         """
         Map a logging level name to a key in the priority_names map.
         This is useful in two scenarios: when custom levels are being
@@ -218,11 +223,10 @@ class UnixSyslogHandler(logging.Handler):
         """
 
         msg = self.format(record)
-        if isinstance(msg, basestring):
-            if isinstance(msg, unicode):
-                msg = msg.encode('utf-8')
+        if isinstance(msg, unicode):
+            msg = msg.encode(self.encoding)
 
-        level = self.map_priority(record.levelname)
+        level = self.mapPriority(record.levelname)
 
         try:
             syslog.syslog(level, msg)
