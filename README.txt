@@ -7,6 +7,7 @@ These are Python modules to extend the logging mechanism in Python.
 Author: Frank Brehm (<frank.brehm@profitbricks.com>)
 
 
+
 Module pb_logging.colored.ColoredFormatter
 =========================================
 
@@ -35,6 +36,7 @@ logger.info('Info')
 logger.warning('Warning!')
 logger.error('ERROR!')
 logger.critical('CRITICAL!!!')
+
 
 
 Module pb_logging.syslog_handler.PbSysLogHandler
@@ -66,6 +68,7 @@ lh_syslog.setFormatter(formatter)
 logger.addHandler(lh_syslog)
 
 logger.debug(u'Unicode message.')
+
 
 
 Module pb_logging.unix_handler.UnixSyslogHandler
