@@ -5,6 +5,13 @@ profitbricks-python-logging (0.2.1-1) unstable; urgency=low
 
  -- Frank Brehm <frank.brehm@profitbricks.com>  Tue, 09 Oct 2012 18:21:13 +0200
 
+python-pb-syslog (0.2.0-6) stable; urgency=low
+
+  * Version bump
+  * Added test/test_colored.py
+
+ -- Frank Brehm <frank.brehm@profitbricks.com>  Tue, 09 Oct 2012 09:47:49 +0200
+
 python-pb-syslog (0.2.0-5) stable; urgency=low
 
   * Version bump

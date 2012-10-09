@@ -5,6 +5,5 @@
 *-stamp
 build
 trace
-ppd.egg-info
 .idea
-/pb_syslog.egg-info
+/pb_logging.egg-info
