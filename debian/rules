@@ -58,8 +58,8 @@ install: build
 	mkdir -p $(DOC_DIR)/html
 	mkdir -p $(DOC_DIR)/pdf
 
-	epydoc --html -v -o $(DOC_DIR)/html $(CURDIR)/pb_syslog
-	epydoc --pdf -o $(DOC_DIR)/pdf $(CURDIR)/pb_syslog
+	epydoc --html -v -o $(DOC_DIR)/html $(CURDIR)/pb_logging
+	epydoc --pdf -o $(DOC_DIR)/pdf $(CURDIR)/pb_logging
 
 	dh_link
 

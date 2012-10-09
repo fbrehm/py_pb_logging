@@ -7,7 +7,7 @@ These are Python modules to extend the logging mechanism in Python.
 Author: Frank Brehm (<frank.brehm@profitbricks.com>)
 
 
-Module pb_syslog.colored.ColoredFormatter
+Module pb_logging.colored.ColoredFormatter
 =========================================
 
 Synopsis:
@@ -19,7 +19,7 @@ Usage:
 ------
 
 import logging
-from pb_syslog.colored import ColoredFormatter
+from pb_logging.colored import ColoredFormatter
 
 logger = logging.getLogger(__name__)
 
@@ -37,7 +37,7 @@ logger.error('ERROR!')
 logger.critical('CRITICAL!!!')
 
 
-Module pb_syslog.syslog_handler.PbSysLogHandler
+Module pb_logging.syslog_handler.PbSysLogHandler
 ===============================================
 
 Synopsis:
@@ -50,7 +50,7 @@ Usage:
 ------
 
 import logging
-from pb_syslog.syslog_handler import PbSysLogHandler
+from pb_logging.syslog_handler import PbSysLogHandler
 
 logger = logging.getLogger(__name__)
 
@@ -68,7 +68,7 @@ logger.addHandler(lh_syslog)
 logger.debug(u'Unicode message.')
 
 
-Module pb_syslog.unix_handler.UnixSyslogHandler
+Module pb_logging.unix_handler.UnixSyslogHandler
 ===============================================
 
 Synopsis:
@@ -81,7 +81,7 @@ Usage:
 ------
 
 import logging
-from pb_syslog.unix_handler import UnixSyslogHandler
+from pb_logging.unix_handler import UnixSyslogHandler
 
 logger = logging.getLogger(__name__)
 

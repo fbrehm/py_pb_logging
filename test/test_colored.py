@@ -18,11 +18,11 @@ import sys
 libdir = os.path.abspath(os.path.join(os.path.dirname(sys.argv[0]), '..'))
 sys.path.insert(0, libdir)
 
-import pb_syslog.colored
+import pb_logging.colored
 
-from pb_syslog.colored import COLOR_CODE
-from pb_syslog.colored import colorstr
-from pb_syslog.colored import ColoredFormatter
+from pb_logging.colored import COLOR_CODE
+from pb_logging.colored import colorstr
+from pb_logging.colored import ColoredFormatter
 
 
 class TestColoredFormatter(unittest.TestCase):
