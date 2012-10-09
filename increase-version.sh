@@ -238,5 +238,4 @@ done
 
 git status debian/changelog $scripts
 
-
 # vim: ts=4 expandtab
