@@ -227,7 +227,7 @@ if [ "${CUR_STAGE}" != "${WANT_STAGE}" ] ; then
     echo -e "[${GREEN}OK${NORMAL}]"
 fi
 
-scripts="pb_syslog/__init__.py"
+scripts="pb_logging/__init__.py"
 for script in $scripts; do
     if [ -f $script ] ; then
         echo -n "Performing $script ... "

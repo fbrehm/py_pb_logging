@@ -21,7 +21,7 @@ libdir = os.path.abspath(os.path.join(os.path.dirname(sys.argv[0]), '..'))
 sys.path.insert(0, libdir)
 
 # Own modules
-from pb_syslog.syslog_handler import PbSysLogHandler
+from pb_logging.syslog_handler import PbSysLogHandler
 
 msg_utf8 = "Test UTF-8"
 msg_uni = u"Test Unicode"

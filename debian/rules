@@ -4,8 +4,8 @@
 # Uncomment this to turn on verbose mode.
 export DH_VERBOSE=1
 
-BIN_PKGNAME := python-pb-syslog
-DOC_PKGNAME := python-pb-syslog-doc
+BIN_PKGNAME := profitbricks-python-logging
+DOC_PKGNAME := profitbricks-python-logging-doc
 
 INSTALL_DIR := $(CURDIR)/debian/$(BIN_PKGNAME)
 DOC_DIR     := $(CURDIR)/debian/$(DOC_PKGNAME)/usr/share/doc/$(DOC_PKGNAME)
@@ -58,8 +58,8 @@ install: build
 	mkdir -p $(DOC_DIR)/html
 	mkdir -p $(DOC_DIR)/pdf
 
-	epydoc --html -v -o $(DOC_DIR)/html $(CURDIR)/pb_syslog
-	epydoc --pdf -o $(DOC_DIR)/pdf $(CURDIR)/pb_syslog
+	epydoc --html -v -o $(DOC_DIR)/html $(CURDIR)/pb_logging
+	epydoc --pdf -o $(DOC_DIR)/pdf $(CURDIR)/pb_logging
 
 	dh_link
 
