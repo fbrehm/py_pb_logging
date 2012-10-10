@@ -1,3 +1,10 @@
+profitbricks-python-logging (0.2.2-3) unstable; urgency=low
+
+  * Version bump
+  * Added Debian build dependency to ghostscript
+
+ -- Frank Brehm <frank.brehm@profitbricks.com>  Wed, 10 Oct 2012 16:06:29 +0200
+
 profitbricks-python-logging (0.2.2-2) unstable; urgency=low
 
   * Version bump
