@@ -1,3 +1,10 @@
+profitbricks-python-logging (0.2.2-2) unstable; urgency=low
+
+  * Version bump
+  * Added dependency to python-argparse for Debian
+
+ -- Frank Brehm <frank.brehm@profitbricks.com>  Wed, 10 Oct 2012 11:50:03 +0200
+
 profitbricks-python-logging (0.2.2-1) unstable; urgency=low
 
   * Version bump
