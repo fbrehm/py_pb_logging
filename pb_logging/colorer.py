@@ -123,7 +123,12 @@ if __name__ == '__main__':
     ch.setFormatter(formatter)
     logger.addHandler(ch)
 
-    add_colors_to_streamhandler({logging.ERROR: Colors.RED})
+    add_colors_to_streamhandler({
+            logging.ERROR: Colors.RED,
+            logging.CRITICAL: Colors.RED_BG,
+            logging.WARNING: Colors.YELLOW,
+            logging.INFO: Colors.GREEN,
+    })
 
     logger.debug("test blub")
     logger.info("test blub")
