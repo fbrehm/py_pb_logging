@@ -5,8 +5,8 @@ Maintainer: Frank Brehm <frank.brehm@profitbricks.com>
 Build-Depends: debhelper (>= 7.0.50~), python-setuptools, python-epydoc, python-docutils,
  python-support, texlive-latex-base, texlive-latex-extra, python-argparse, ghostscript
 Standards-Version: 3.8.4
-Vcs-Git: git+ssh://git.profitbricks.localdomain/srv/git/python/pb_logging.git
-Vcs-Browser: http://git.profitbricks.localdomain/gitweb/?p=python/pb_logging.git;a=summary
+Vcs-Git: git+ssh://git.profitbricks.localdomain/srv/git/python/pb-logging.git
+Vcs-Browser: http://git.profitbricks.localdomain/gitweb/?p=python/pb-logging.git;a=summary
 
 Package: profitbricks-python-logging
 Architecture: all
