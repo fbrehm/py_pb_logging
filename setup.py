@@ -1,19 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-"""
-@author: Frank Brehm
-@contact: frank.brehm@profitbricks.com
-@license: GPL3
-@copyright: (c) 2010-2012 by Profitbricks GmbH
-@summary: Additional loghandler and logging formater objects
-          to use with the logging framework.
-"""
-
-from setuptools import setup
 import os
 import sys
-import os.path
+from distutils.core import setup, Command
 
 # own modules:
 cur_dir = os.getcwd()
@@ -27,15 +17,35 @@ import pb_logging
 
 packet_version = pb_logging.__version__
 
+def read(fname):
+    return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
 setup(
     name = 'pb_logging',
     version = packet_version,
     description = 'Additional loghandler and logging formater objects',
+    long_description = read('README.txt'),
     author = 'Frank Brehm',
     author_email = 'frank.brehm@profitbricks.com',
-    url = 'ssh://git.profitbricks.localdomain/srv/git/python/pb_logging.git',
+    url = 'ssh://git.profitbricks.localdomain/srv/git/python/pb-logging.git',
+    license = 'LGPLv3+',
     packages = ['pb_logging'],
+    classifiers = [
+        'Development Status :: 3 - Alpha',
+        'Environment :: Console',
+        'Intended Audience :: Developers',
+        'License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)',
+        'Natural Language :: English',
+        'Operating System :: POSIX',
+        'Programming Language :: Python :: 2.6',
+        'Programming Language :: Python :: 2.7',
+        'Topic :: Software Development :: Libraries :: Python Modules',
+        'Topic :: System :: Logging',
+
+    ],
+    provides = [
+        'pb_logging',
+    ],
 )
 
 #========================================================================
