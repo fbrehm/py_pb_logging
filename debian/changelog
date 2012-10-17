@@ -1,3 +1,9 @@
+profitbricks-python-logging (0.2.6-3) unstable; urgency=low
+
+  * Version bump
+
+ -- Frank Brehm <frank.brehm@profitbricks.com>  Wed, 17 Oct 2012 13:05:27 +0200
+
 profitbricks-python-logging (0.2.6-2) unstable; urgency=low
 
   * Version bump
