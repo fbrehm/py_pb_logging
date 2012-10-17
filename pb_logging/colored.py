@@ -1,11 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 '''
-@author: Frank Brehm
-@contact: frank.brehm@profitbricks.com
-@organization: Profitbricks GmbH
-@copyright: (c) 2010-2012 by Profitbricks GmbH
-@license: GPL3
 @summary: additional logging formatter for colored output via console
 '''
 
@@ -23,11 +18,7 @@ import copy
 
 #from pb_provisioning.common import to_unicode_or_bust, to_utf8_or_bust
 
-__author__ = 'Frank Brehm <frank.brehm@profitbricks.com>'
-__copyright__ = '(C) 2010-2012 by profitbricks.com'
-__contact__ = 'frank.brehm@profitbricks.com'
-__version__ = '0.1.0'
-__license__ = 'GPL3'
+__version__ = '0.1.1'
 
 #==============================================================================
 # Color coding module variables and helper functions

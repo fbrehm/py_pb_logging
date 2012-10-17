@@ -29,6 +29,7 @@ setup(
     author_email = 'frank.brehm@profitbricks.com',
     url = 'ssh://git.profitbricks.localdomain/srv/git/python/pb-logging.git',
     license = 'LGPLv3+',
+    platforms = ['posix'],
     packages = ['pb_logging'],
     classifiers = [
         'Development Status :: 3 - Alpha',
