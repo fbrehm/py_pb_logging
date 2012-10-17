@@ -9,7 +9,7 @@ Author: Frank Brehm (<frank.brehm@profitbricks.com>)
 
 
 Module pb_logging.colored.ColoredFormatter
-=========================================
+==========================================
 
 Synopsis:
 ---------
@@ -40,7 +40,7 @@ logger.critical('CRITICAL!!!')
 
 
 Module pb_logging.syslog_handler.PbSysLogHandler
-===============================================
+================================================
 
 Synopsis:
 ---------
@@ -72,7 +72,7 @@ logger.debug(u'Unicode message.')
 
 
 Module pb_logging.unix_handler.UnixSyslogHandler
-===============================================
+================================================
 
 Synopsis:
 ---------
