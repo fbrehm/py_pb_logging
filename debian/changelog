@@ -1,3 +1,10 @@
+profitbricks-python-logging (0.2.5-1) unstable; urgency=low
+
+  * Version bump
+  * Changed setup.py from setuptools to distutils
+
+ -- Frank Brehm <frank.brehm@profitbricks.com>  Wed, 17 Oct 2012 11:30:03 +0200
+
 profitbricks-python-logging (0.2.4-1) unstable; urgency=low
 
   * Version bump
