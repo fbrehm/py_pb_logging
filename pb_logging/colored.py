@@ -117,64 +117,54 @@ class ColoredFormatter(logging.Formatter):
         logging.Formatter.__init__(self, msg)
 
     #------------------------------------------------------------
-    @apply
-    def color_debug():
-        doc = "The color used to output debug messages."
-        def fget(self):
-            return self.LEVEL_COLOR['DEBUG']
-        def fset(self, value):
-            self.LEVEL_COLOR['DEBUG'] = value
-        def fdel(self):
-            pass
-        return property(**locals())
+    @property
+    def color_debug(self):
+        """The color used to output debug messages."""
+        return self.LEVEL_COLOR['DEBUG']
+
+    @color_debug.setter
+    def color_debug(self, value):
+        self.LEVEL_COLOR['DEBUG'] = value
 
     #------------------------------------------------------------
-    @apply
-    def color_info():
-        doc = "The color used to output info messages."
-        def fget(self):
-            return self.LEVEL_COLOR['INFO']
-        def fset(self, value):
-            self.LEVEL_COLOR['INFO'] = value
-        def fdel(self):
-            pass
-        return property(**locals())
+    @property
+    def color_info(self):
+        """The color used to output info messages."""
+        return self.LEVEL_COLOR['INFO']
+
+    @color_info.setter
+    def color_info(self, value):
+        self.LEVEL_COLOR['INFO'] = value
 
     #------------------------------------------------------------
-    @apply
-    def color_warning():
-        doc = "The color used to output warning messages."
-        def fget(self):
-            return self.LEVEL_COLOR['WARNING']
-        def fset(self, value):
-            self.LEVEL_COLOR['WARNING'] = value
-        def fdel(self):
-            pass
-        return property(**locals())
+    @property
+    def color_warning(self):
+        """The color used to output warning messages."""
+        return self.LEVEL_COLOR['WARNING']
+
+    @color_warning.setter
+    def color_warning(self, value):
+        self.LEVEL_COLOR['WARNING'] = value
 
     #------------------------------------------------------------
-    @apply
-    def color_error():
-        doc = "The color used to output error messages."
-        def fget(self):
-            return self.LEVEL_COLOR['ERROR']
-        def fset(self, value):
-            self.LEVEL_COLOR['ERROR'] = value
-        def fdel(self):
-            pass
-        return property(**locals())
+    @property
+    def color_error(self):
+        """The color used to output error messages."""
+        return self.LEVEL_COLOR['ERROR']
+
+    @color_error.setter
+    def color_error(self, value):
+        self.LEVEL_COLOR['ERROR'] = value
 
     #------------------------------------------------------------
-    @apply
-    def color_critical():
-        doc = "The color used to output critical messages."
-        def fget(self):
-            return self.LEVEL_COLOR['CRITICAL']
-        def fset(self, value):
-            self.LEVEL_COLOR['CRITICAL'] = value
-        def fdel(self):
-            pass
-        return property(**locals())
+    @property
+    def color_critical(self):
+        """The color used to output critical messages."""
+        return self.LEVEL_COLOR['CRITICAL']
+
+    @color_critical.setter
+    def color_critical(self, value):
+        self.LEVEL_COLOR['CRITICAL'] = value
 
     #--------------------------------------------------------------------------
     def format(self, record):
