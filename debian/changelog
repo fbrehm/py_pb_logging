@@ -1,3 +1,11 @@
+profitbricks-python-logging (0.2.7-1) unstable; urgency=low
+
+  * Version bump
+  * Substituted @apply decorator by @property decorator
+  * Substituted triple single quotes by triple double quotes.
+
+ -- Frank Brehm <frank.brehm@profitbricks.com>  Thu, 18 Oct 2012 14:49:28 +0200
+
 profitbricks-python-logging (0.2.6-3) unstable; urgency=low
 
   * Version bump
