@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-'''
+"""
 @summary: additional logging formatter for colored output via console
-'''
+"""
 
 # Standard modules
 import logging

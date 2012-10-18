@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-'''
+"""
 @summary: wrapping logging handler for logging.handlers.SysLogHandler
           to avoid BOM errors in syslog messages
-'''
+"""
 
 # Standard modules
 import logging
@@ -34,7 +34,7 @@ class PbSysLogHandler(SysLogHandler):
             socktype = socket.SOCK_DGRAM,
             encoding = "utf-8",
             ):
-        """  
+        """
         Initialize the PbSysLogHandler.
 
         To log to a local syslogd, "PbSysLogHandler(address = "/dev/log")"
@@ -71,7 +71,7 @@ class PbSysLogHandler(SysLogHandler):
             SysLogHandler.__init__(self, address, facility)
 
         self.encoding = encoding
-        """ 
+        """
         @ivar: the character set to use to encode unicode messages
         @type: str
         """

@@ -24,27 +24,27 @@ import syslog
 # Module variables
 
 valid_syslog_facility = {}
-'''
+"""
 a dictionary with all valid syslog facility names as keys and their
 integer value as values.
 @type: dict
-'''
+"""
 
 syslog_facility_name = {}
-'''
+"""
 The reverse dictionary to valid_syslog_facility with all facility values
 as keys and their names as values.
-'''
+"""
 
 #==============================================================================
 def use_unix_syslog_handler():
-    '''
+    """
     Use UnixSyslogHandler for logging instead of SyslogHandler.
 
     @return: using UnixSyslogHandler
     @rtype: bool
 
-    '''
+    """
 
     use_syslog = False
     un = os.uname()
@@ -56,11 +56,11 @@ def use_unix_syslog_handler():
 
 #==============================================================================
 def _init_valid_facilities():
-    '''
+    """
     Initialise the module variables valid_syslog_facility and
     syslog_facility_name.
 
-    '''
+    """
 
     global valid_syslog_facility, syslog_facility_name
 
@@ -117,13 +117,13 @@ def _init_valid_facilities():
 
 #==============================================================================
 def get_syslog_facility_name(syslog_facility):
-    '''
+    """
     Returns the name of the given syslog facility.
     Returns None, if not found.
 
     @return: syslog facility name
     @rtype: str
-    '''
+    """
 
     global valid_syslog_facility, syslog_facility_name
 
@@ -134,13 +134,13 @@ def get_syslog_facility_name(syslog_facility):
 
 #==============================================================================
 def get_syslog_facility_of_name(facility_name):
-    '''
+    """
     Returns the numeric value of the given syslog facility name.
     Returns None, if not found.
 
     @return: syslog facility value
     @rtype: int
-    '''
+    """
 
     global valid_syslog_facility, syslog_facility_name
 
