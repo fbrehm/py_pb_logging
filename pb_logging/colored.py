@@ -1,13 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-'''
-@author: Frank Brehm
-@contact: frank.brehm@profitbricks.com
-@organization: Profitbricks GmbH
-@copyright: (c) 2010-2012 by Profitbricks GmbH
-@license: GPL3
+"""
 @summary: additional logging formatter for colored output via console
-'''
+"""
 
 # Standard modules
 import logging
@@ -23,11 +18,7 @@ import copy
 
 #from pb_provisioning.common import to_unicode_or_bust, to_utf8_or_bust
 
-__author__ = 'Frank Brehm <frank.brehm@profitbricks.com>'
-__copyright__ = '(C) 2010-2012 by profitbricks.com'
-__contact__ = 'frank.brehm@profitbricks.com'
-__version__ = '0.1.0'
-__license__ = 'GPL3'
+__version__ = '0.1.1'
 
 #==============================================================================
 # Color coding module variables and helper functions
@@ -126,64 +117,54 @@ class ColoredFormatter(logging.Formatter):
         logging.Formatter.__init__(self, msg)
 
     #------------------------------------------------------------
-    @apply
-    def color_debug():
-        doc = "The color used to output debug messages."
-        def fget(self):
-            return self.LEVEL_COLOR['DEBUG']
-        def fset(self, value):
-            self.LEVEL_COLOR['DEBUG'] = value
-        def fdel(self):
-            pass
-        return property(**locals())
+    @property
+    def color_debug(self):
+        """The color used to output debug messages."""
+        return self.LEVEL_COLOR['DEBUG']
+
+    @color_debug.setter
+    def color_debug(self, value):
+        self.LEVEL_COLOR['DEBUG'] = value
 
     #------------------------------------------------------------
-    @apply
-    def color_info():
-        doc = "The color used to output info messages."
-        def fget(self):
-            return self.LEVEL_COLOR['INFO']
-        def fset(self, value):
-            self.LEVEL_COLOR['INFO'] = value
-        def fdel(self):
-            pass
-        return property(**locals())
+    @property
+    def color_info(self):
+        """The color used to output info messages."""
+        return self.LEVEL_COLOR['INFO']
+
+    @color_info.setter
+    def color_info(self, value):
+        self.LEVEL_COLOR['INFO'] = value
 
     #------------------------------------------------------------
-    @apply
-    def color_warning():
-        doc = "The color used to output warning messages."
-        def fget(self):
-            return self.LEVEL_COLOR['WARNING']
-        def fset(self, value):
-            self.LEVEL_COLOR['WARNING'] = value
-        def fdel(self):
-            pass
-        return property(**locals())
+    @property
+    def color_warning(self):
+        """The color used to output warning messages."""
+        return self.LEVEL_COLOR['WARNING']
+
+    @color_warning.setter
+    def color_warning(self, value):
+        self.LEVEL_COLOR['WARNING'] = value
 
     #------------------------------------------------------------
-    @apply
-    def color_error():
-        doc = "The color used to output error messages."
-        def fget(self):
-            return self.LEVEL_COLOR['ERROR']
-        def fset(self, value):
-            self.LEVEL_COLOR['ERROR'] = value
-        def fdel(self):
-            pass
-        return property(**locals())
+    @property
+    def color_error(self):
+        """The color used to output error messages."""
+        return self.LEVEL_COLOR['ERROR']
+
+    @color_error.setter
+    def color_error(self, value):
+        self.LEVEL_COLOR['ERROR'] = value
 
     #------------------------------------------------------------
-    @apply
-    def color_critical():
-        doc = "The color used to output critical messages."
-        def fget(self):
-            return self.LEVEL_COLOR['CRITICAL']
-        def fset(self, value):
-            self.LEVEL_COLOR['CRITICAL'] = value
-        def fdel(self):
-            pass
-        return property(**locals())
+    @property
+    def color_critical(self):
+        """The color used to output critical messages."""
+        return self.LEVEL_COLOR['CRITICAL']
+
+    @color_critical.setter
+    def color_critical(self, value):
+        self.LEVEL_COLOR['CRITICAL'] = value
 
     #--------------------------------------------------------------------------
     def format(self, record):
