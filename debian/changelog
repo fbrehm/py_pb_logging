@@ -1,3 +1,10 @@
+profitbricks-python-logging (0.2.8-1) unstable; urgency=low
+
+  * Version bump
+  * Minor changes on increase-version.sh
+
+ -- Frank Brehm <frank.brehm@profitbricks.com>  Mon, 11 Feb 2013 16:03:15 +0100
+
 profitbricks-python-logging (0.2.7-3) unstable; urgency=low
 
   * Version bump
