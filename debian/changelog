@@ -1,3 +1,16 @@
+profitbricks-python-logging (0.3.1-1) unstable; urgency=low
+
+  * Senseless version bump
+
+ -- Frank Brehm <frank.brehm@profitbricks.com>  Tue, 12 Feb 2013 11:54:21 +0100
+
+profitbricks-python-logging (0.3.0-1) unstable; urgency=low
+
+  * Version bump
+  * Declared for unstable
+
+ -- Frank Brehm <frank.brehm@profitbricks.com>  Mon, 11 Feb 2013 16:11:56 +0100
+
 profitbricks-python-logging (0.2.9-1) stable; urgency=low
 
   * Version bump
