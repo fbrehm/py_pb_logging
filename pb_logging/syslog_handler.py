@@ -10,6 +10,9 @@ import logging
 import logging.handlers
 import socket
 import sys
+import os
+import stat
+import errno
 
 from logging.handlers import SYSLOG_UDP_PORT
 from logging.handlers import SysLogHandler
@@ -18,7 +21,7 @@ from logging.handlers import SysLogHandler
 
 # Own modules
 
-__version__ = '0.1.1'
+__version__ = '0.2.0'
 
 #==============================================================================
 
@@ -31,7 +34,7 @@ class PbSysLogHandler(SysLogHandler):
     def __init__(self,
             address = ('localhost', SYSLOG_UDP_PORT),
             facility = SysLogHandler.LOG_USER,
-            socktype = socket.SOCK_DGRAM,
+            socktype = None
             encoding = "utf-8",
             ):
         """
@@ -59,13 +62,27 @@ class PbSysLogHandler(SysLogHandler):
 
         # Initialisation of the parent object
         do_socktype = False
+        do_ux_socket = False
+
         if sys.version_info[0] > 2:
             if sys.version_info[1] > 1:
                 do_socktype = True
         else:
             if sys.version_info[1] > 6:
                 do_socktype = True
-        if do_socktype:
+
+        if isinstance(address, basestring):
+            if not os.path.exists(address):
+                raise OSError(errno.ENOENT, "File doesn't exists", address)
+            mode = os.stat(sddress).st_mode
+            if not stat.S_ISSOCK(mode):
+                raise OSError(errno.EPERM, "File is not a UNIX socket file", address)
+            if not os.access(address, os.W_OK):
+                raise OSError(errno.EPERM, "No write access to socket", address)
+
+            do_ux_socket = True
+
+        if do_socktype and not do_ux_socket:
             SysLogHandler.__init__(self, address, facility, socktype)
         else:
             SysLogHandler.__init__(self, address, facility)
