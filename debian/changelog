@@ -1,3 +1,9 @@
+profitbricks-python-logging (0.3.3-2) stable; urgency=low
+
+  * Declared for stable
+
+ -- Frank Brehm <frank.brehm@profitbricks.com>  Mon, 05 Aug 2013 16:07:23 +0200
+
 profitbricks-python-logging (0.3.3-1) unstable; urgency=low
 
   * Declared for unstable
