@@ -1,3 +1,12 @@
+profitbricks-python-logging (0.3.3-1) unstable; urgency=low
+
+  * Declared for unstable
+  * Better handling on logging to UNIX sockets in
+    pb_logging/syslog_handler.py
+  * Refactored UnixSyslogHandler.
+
+ -- Frank Brehm <frank.brehm@profitbricks.com>  Mon, 05 Aug 2013 15:57:35 +0200
+
 profitbricks-python-logging (0.3.2-1) stable; urgency=low
 
   * Declared for stable
