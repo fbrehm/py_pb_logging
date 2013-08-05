@@ -23,8 +23,8 @@ sys.path.insert(0, libdir)
 # Own modules
 from pb_logging.syslog_handler import PbSysLogHandler
 
-msg_utf8 = "Test UTF-8"
-msg_uni = u"Test Unicode"
+msg_utf8 = "Test UTF-8 without wide characters."
+msg_uni = u"Test Unicode with wide characters: 'äöüÄÖÜß»«¢„“”µ·…@ł€¶ŧ←↓→øþ¨æſðđŋħłĸ˝^'"
 
 logger = logging.getLogger('test.unicode')
 
