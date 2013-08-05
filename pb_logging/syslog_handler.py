@@ -21,7 +21,7 @@ from logging.handlers import SysLogHandler
 
 # Own modules
 
-__version__ = '0.2.0'
+__version__ = '0.2.1'
 
 #==============================================================================
 
@@ -34,7 +34,7 @@ class PbSysLogHandler(SysLogHandler):
     def __init__(self,
             address = ('localhost', SYSLOG_UDP_PORT),
             facility = SysLogHandler.LOG_USER,
-            socktype = None
+            socktype = None,
             encoding = "utf-8",
             ):
         """
@@ -74,7 +74,7 @@ class PbSysLogHandler(SysLogHandler):
         if isinstance(address, basestring):
             if not os.path.exists(address):
                 raise OSError(errno.ENOENT, "File doesn't exists", address)
-            mode = os.stat(sddress).st_mode
+            mode = os.stat(address).st_mode
             if not stat.S_ISSOCK(mode):
                 raise OSError(errno.EPERM, "File is not a UNIX socket file", address)
             if not os.access(address, os.W_OK):
