@@ -15,7 +15,7 @@ import sys
 
 # Own modules
 
-__version__ = '0.2.2'
+__version__ = '0.2.3'
 
 #==============================================================================
 
@@ -249,7 +249,7 @@ class UnixSyslogHandler(logging.Handler):
             msg = msg.encode(self.encoding)
 
         level_name = self.mapPriority(record.levelname)
-        level_id = self.priority_names(level_name)
+        level_id = self.priority_names[level_name]
 
         try:
             syslog.syslog(level_id, msg)
@@ -266,4 +266,4 @@ if __name__ == "__main__":
 
 #==============================================================================
 
-# vim: tabstop=4 expandtab shiftwidth=4 softtabstop=4 nu
+# vim: tabstop=4 expandtab shiftwidth=4 softtabstop=4
