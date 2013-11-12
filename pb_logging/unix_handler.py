@@ -190,7 +190,8 @@ class UnixSyslogHandler(logging.Handler):
         """The syslog facility name to use."""
         return getattr('_facility', 'user')
 
-    @facility.setter(self, value):
+    @facility.setter
+    def facility(self, value):
         if self.opened:
             return
         used_facility = value.lower()
