@@ -1,4 +1,4 @@
-profitbricks-python-logging (0.3.4-1) unstable; urgency=low
+profitbricks-python-logging (0.3.4-1) stable; urgency=low
 
   * Bugfix in pb_logging/unix_handler.py
   * Added test/general.py and test/test_syslog.py
@@ -6,6 +6,12 @@ profitbricks-python-logging (0.3.4-1) unstable; urgency=low
     test/test_syslog.py
 
  -- Frank Brehm <frank.brehm@profitbricks.com>  Tue, 12 Nov 2013 17:48:56 +0100
+
+profitbricks-python-logging (0.3.3-2) stable; urgency=low
+
+  * Declared for stable
+
+ -- Frank Brehm <frank.brehm@profitbricks.com>  Mon, 05 Aug 2013 16:07:23 +0200
 
 profitbricks-python-logging (0.3.3-1) unstable; urgency=low
 
