@@ -1,3 +1,12 @@
+profitbricks-python-logging (0.3.4-1) unstable; urgency=low
+
+  * Bugfix in pb_logging/unix_handler.py
+  * Added test/general.py and test/test_syslog.py
+  * Added test methods test_logging_syslog() and test_unix_syslog() to
+    test/test_syslog.py
+
+ -- Frank Brehm <frank.brehm@profitbricks.com>  Tue, 12 Nov 2013 17:48:56 +0100
+
 profitbricks-python-logging (0.3.3-1) unstable; urgency=low
 
   * Declared for unstable
