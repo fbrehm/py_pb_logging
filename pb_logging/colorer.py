@@ -102,7 +102,7 @@ def add_colors_to_streamhandler(colordict=None):
                 return fn(*args)
 
             levelno = args[1].levelno
-            if colordict.has_key(levelno):
+            if levelno in colordict:
                 color = colordict[levelno]
                 args[1].msg = Colors.colorize(args[1].msg, color)
 

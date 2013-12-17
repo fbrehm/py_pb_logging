@@ -245,7 +245,7 @@ class UnixSyslogHandler(logging.Handler):
         """
 
         msg = self.format(record)
-        if isinstance(msg, unicode):
+        if isinstance(msg, str):
             msg = msg.encode(self.encoding)
 
         level_name = self.mapPriority(record.levelname)

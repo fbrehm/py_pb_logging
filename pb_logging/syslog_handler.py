@@ -71,7 +71,7 @@ class PbSysLogHandler(SysLogHandler):
             if sys.version_info[1] > 6:
                 do_socktype = True
 
-        if isinstance(address, basestring):
+        if isinstance(address, str):
             if not os.path.exists(address):
                 raise OSError(errno.ENOENT, "File doesn't exists", address)
             mode = os.stat(address).st_mode
@@ -82,8 +82,11 @@ class PbSysLogHandler(SysLogHandler):
 
             do_ux_socket = True
 
-        if do_socktype and not do_ux_socket:
-            SysLogHandler.__init__(self, address, facility, socktype)
+        if do_socktype:
+            if do_ux_socket:
+                SysLogHandler.__init__(self, address, facility, None)
+            else:
+                SysLogHandler.__init__(self, address, facility, socktype)
         else:
             SysLogHandler.__init__(self, address, facility)
 
@@ -94,6 +97,34 @@ class PbSysLogHandler(SysLogHandler):
         """
 
     #--------------------------------------------------------------------------
+    def _connect_unixsocket(self, address):
+
+        use_socktype = getattr(self, 'socktype', None)
+
+        if use_socktype is None:
+            use_socktype = socket.SOCK_DGRAM
+
+        self.socket = socket.socket(socket.AF_UNIX, use_socktype)
+        try:
+            self.socket.connect(address)
+            # it worked, so set self.socktype to the used type
+            self.socktype = use_socktype
+        except socket.error:
+            self.socket.close()
+            if self.socktype is not None:
+                # user didn't specify falling back, so fail
+                raise
+            use_socktype = socket.SOCK_STREAM
+            self.socket = socket.socket(socket.AF_UNIX, use_socktype)
+            try:
+                self.socket.connect(address)
+                # it worked, so set self.socktype to the used type
+                self.socktype = use_socktype
+            except socket.error:
+                self.socket.close()
+                raise
+
+    #--------------------------------------------------------------------------
     def emit(self, record):
         """
         Wrapper method for SysLogHandler.emit() to encode an unicode message
@@ -101,9 +132,14 @@ class PbSysLogHandler(SysLogHandler):
         """
 
         msg = record.msg
-        if isinstance(msg, unicode):
-            msg = msg.encode(self.encoding)
-            record.msg = msg
+        if sys.version_info[0] > 2:
+            if isinstance(msg, bytes):
+                msg = msg.decode(self.encoding)
+                record.msg = msg
+        else:
+            if isinstance(msg, unicode):
+                msg = msg.encode(self.encoding)
+                record.msg = msg
 
         SysLogHandler.emit(self, record)
 

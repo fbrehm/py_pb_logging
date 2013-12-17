@@ -16,6 +16,7 @@ import logging.handlers
 import syslog
 import sys
 import os
+import socket
 
 libdir = os.path.abspath(os.path.join(os.path.dirname(sys.argv[0]), '..'))
 sys.path.insert(0, libdir)
@@ -23,8 +24,14 @@ sys.path.insert(0, libdir)
 # Own modules
 from pb_logging.syslog_handler import PbSysLogHandler
 
-msg_utf8 = "Test UTF-8 without wide characters."
-msg_uni = u"Test Unicode with wide characters: 'äöüÄÖÜß»«¢„“”µ·…@ł€¶ŧ←↓→øþ¨æſðđŋħłĸ˝^'"
+if sys.version_info[0] > 2:
+    print("This is Python 3.X")
+    msg_utf8 = "Test UTF-8 with wide characters: 'äöüÄÖÜß»«¢„“”µ·…@ł€¶ŧ←↓→øþ¨æſðđŋħłĸ˝^'".encode('utf-8')
+    msg_uni = "Test Unicode with wide characters: 'äöüÄÖÜß»«¢„“”µ·…@ł€¶ŧ←↓→øþ¨æſðđŋħłĸ˝^'"
+else:
+    print("This is Python 2.X")
+    msg_utf8 = "Test UTF-8 with wide characters: 'äöüÄÖÜß»«¢„“”µ·…@ł€¶ŧ←↓→øþ¨æſðđŋħłĸ˝^'"
+    msg_uni = "Test Unicode with wide characters: 'äöüÄÖÜß»«¢„“”µ·…@ł€¶ŧ←↓→øþ¨æſðđŋħłĸ˝^'".decode('utf-8')
 
 logger = logging.getLogger('test.unicode')
 

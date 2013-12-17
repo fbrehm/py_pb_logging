@@ -30,8 +30,8 @@ class TestSyslogTestcase(PbLoggingTestcase):
     #--------------------------------------------------------------------------
     def setUp(self):
 
-        self.msg_utf8 = "Test UTF-8 without wide characters."
-        self.msg_uni = u"Test Unicode with wide characters: 'äöüÄÖÜß»«¢„“”µ·…@ł€¶ŧ←↓→øþ¨æſðđŋħłĸ˝^'"
+        self.msg_utf8 = b"Test UTF-8 without wide characters."
+        self.msg_uni = "Test Unicode with wide characters: 'äöüÄÖÜß»«¢„“”µ·…@ł€¶ŧ←↓→øþ¨æſðđŋħłĸ˝^'"
 
 
     #--------------------------------------------------------------------------
