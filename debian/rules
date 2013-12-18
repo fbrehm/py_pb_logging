@@ -4,40 +4,35 @@
 # Uncomment this to turn on verbose mode.
 export DH_VERBOSE=1
 
-BIN_PKGNAME := profitbricks-python-logging
-DOC_PKGNAME := profitbricks-python-logging-doc
+BIN_PKGNAME  := profitbricks-python-logging
+BIN3_PKGNAME := profitbricks-python3-logging
+DOC_PKGNAME  := profitbricks-python-logging-doc
 
-INSTALL_DIR := $(CURDIR)/debian/$(BIN_PKGNAME)
-DOC_DIR     := $(CURDIR)/debian/$(DOC_PKGNAME)/usr/share/doc/$(DOC_PKGNAME)
+INSTALL_DIR  := $(CURDIR)/debian/$(BIN_PKGNAME)
+INSTALL3_DIR := $(CURDIR)/debian/$(BIN3_PKGNAME)
+DOC_DIR      := $(CURDIR)/debian/$(DOC_PKGNAME)/usr/share/doc/$(DOC_PKGNAME)
 
-build: build-stamp
+PYTHONS      := $(shell pyversions -vr)
+PYTHON3S     := $(shell py3versions -vr)
 
-build-stamp:
+%:
+	dh $@ --with python2,python3
+
+override_dh_auto_build:
 	$(info )
 	$(info ########################)
 	$(info Building ...)
 	$(info )
 
 	dh_testdir
-	python setup.py build
-	touch build-stamp
+	@echo ""
+	@echo "Building Python 2 stuff ..."
+	set -e && for pyvers in $(PYTHONS); do python$$pyvers setup.py build; done
+	@echo ""
+	@echo "Building Python 3 stuff ..."
+	set -e && for pyvers in $(PYTHON3S); do python$$pyvers setup.py build; done
 
-clean:
-	$(info )
-	$(info ########################)
-	$(info Cleaning ...)
-	$(info )
-
-	dh_testdir
-	dh_testroot
-	rm -f build-stamp
-	rm -rf build
-	-find . -name '*.py[co]' | xargs rm -f
-	dh_clean
-	rm -rf ppd.egg-info
-	rm -rf build
-
-install: build
+override_dh_auto_install:
 	$(info )
 	$(info ########################)
 	$(info Installing ...)
@@ -50,8 +45,12 @@ install: build
 	dh_install
 
 	@echo ""
-	@echo "Installing Python stuff ..."
-	python setup.py install --force --root=$(INSTALL_DIR) --no-compile -O0 --install-layout=deb
+	@echo "Installing Python 2 stuff ..."
+	set -e && for pyvers in $(PYTHONS); do python$$pyvers setup.py install --root=$(INSTALL_DIR) --install-layout=deb; done
+
+	@echo ""
+	@echo "Installing Python 3 stuff ..."
+	set -e && for pyvers in $(PYTHON3S); do python$$pyvers setup.py install --root=$(INSTALL3_DIR) --install-layout=deb; done
 
 	@echo ""
 	@echo "Documentation ..."
@@ -63,33 +62,22 @@ install: build
 
 	dh_link
 
-# Build architecture-independent files here.
-binary-indep: build install
+override_dh_auto_clean:
 	$(info )
 	$(info ########################)
-	$(info Installing architecture-independent files ...)
+	$(info Cleaning ...)
 	$(info )
 
-	dh_testdir
-	dh_testroot
-	dh_installdocs
-	dh_installchangelogs
-	dh_installdebconf
-	dh_pysupport
-	#dh_installinit --name=ppd --restart-after-upgrade
-	#dh_installlogrotate --name vncproxy
-	#dh_installcron
-	dh_compress -X.py -X.pdf
-	dh_fixperms
-	dh_installdeb
-	dh_gencontrol
-	dh_md5sums
-	dh_builddeb
+	dh_auto_clean
+	rm -fv $(CURDIR)/debian/*debhelper.log
+	rm -rf $(CURDIR)/build
 
-# Build architecture-dependent files here.
+binary: binary-indep
 binary-arch: build install
+	# nothing to do here.
 
-binary: binary-indep binary-arch
-.PHONY: build clean binary-indep binary-arch binary install configure
+binary-indep: build install
+	dh $@ --with python2,python3
 
+.PHONY: install binary binary-arch binary-indep
 
