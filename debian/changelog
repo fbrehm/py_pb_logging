@@ -1,3 +1,10 @@
+profitbricks-python-logging (0.4.0-1) unstable; urgency=low
+
+  * Declared for unstable
+  * Converting for Python 3
+
+ -- Frank Brehm <frank.brehm@profitbricks.com>  Wed, 18 Dec 2013 14:46:53 +0100
+
 profitbricks-python-logging (0.3.4-1) stable; urgency=low
 
   * Bugfix in pb_logging/unix_handler.py
