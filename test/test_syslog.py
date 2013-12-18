@@ -69,6 +69,7 @@ class TestSyslogTestcase(PbLoggingTestcase):
         from pb_logging.unix_handler import UnixSyslogHandler
 
     #--------------------------------------------------------------------------
+    @unittest.skipUnless(os.path.exists('/dev/log'), "Socket '/dev/log' must exist.")
     def test_logging_syslog(self):
 
         log.info("Test logging with PbSysLogHandler ...")
