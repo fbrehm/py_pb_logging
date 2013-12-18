@@ -1,3 +1,9 @@
+profitbricks-python-logging (0.4.1-1) unstable; urgency=low
+
+  * Modifications on debian build system for Python3
+
+ -- Frank Brehm <frank.brehm@profitbricks.com>  Wed, 18 Dec 2013 19:32:56 +0100
+
 profitbricks-python-logging (0.4.0-1) unstable; urgency=low
 
   * Declared for unstable
