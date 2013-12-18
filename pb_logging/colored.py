@@ -196,13 +196,13 @@ if __name__ == "__main__":
     msg = 'Hallo Ballo!'
 
     for key in sorted(COLOR_CODE.keys()):
-        print '%s: %s' % (key, colorstr(msg, key))
+        print('%s: %s' % (key, colorstr(msg, key)))
 
-    print ""
-    print(colorstr('Bold Red', ('BOLD', 'RED')))
-    print(colorstr('Normal Red', 'RED'))
+    print("")
+    print((colorstr('Bold Red', ('BOLD', 'RED'))))
+    print((colorstr('Normal Red', 'RED')))
 
-    print ""
+    print("")
 
     logger.setLevel(logging.DEBUG)
     console = logging.StreamHandler()
