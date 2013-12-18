@@ -3,7 +3,7 @@ Section: python
 Priority: extra
 Maintainer: Frank Brehm <frank.brehm@profitbricks.com>
 Build-Depends: debhelper (>= 7.3.5), python-epydoc, python-docutils,
- python-all (>= 2.6.5-2~), python3-all, python-support, texlive-latex-base,
+ python-all (>= 2.6.5-2~), python3-all, python3, python-support, texlive-latex-base,
  texlive-latex-extra, python-argparse, ghostscript
 Standards-Version: 3.8.4
 Vcs-Git: git+ssh://git.profitbricks.localdomain/srv/git/python/pb-logging.git
