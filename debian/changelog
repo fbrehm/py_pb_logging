@@ -1,3 +1,10 @@
+profitbricks-python-logging (0.4.1-2) unstable; urgency=low
+
+  * Added pb-logging.ebuild
+  * Minimal changes in debian/rules
+
+ -- Frank Brehm <frank.brehm@profitbricks.com>  Thu, 20 Mar 2014 14:16:13 +0100
+
 profitbricks-python-logging (0.4.1-1) unstable; urgency=low
 
   * Modifications on debian build system for Python3
