@@ -37,8 +37,8 @@ class TestColoredFormatter(unittest.TestCase):
         for key in sorted(COLOR_CODE.keys()):
 
             try:
-                print '%s: %s' % (key, colorstr(msg, key))
-            except Exception, e:
+                print('%s: %s' % (key, colorstr(msg, key)))
+            except Exception as e:
                 self.fail("Failed to generate colored string %r with %s: %s" % (
                         key, e.__class__.__name__, str(e)))
 
@@ -47,7 +47,7 @@ class TestColoredFormatter(unittest.TestCase):
         try:
             formatter = ColoredFormatter(
                     '%(name)s: %(message)s (%(filename)s:%(lineno)d)')
-        except Exception, e:
+        except Exception as e:
             self.fail("Could not instatiate ColoredFormatter object with %s: %s" % (
                     e.__class__.__name__, str(e)))
 

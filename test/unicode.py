@@ -16,9 +16,10 @@ import logging.handlers
 import syslog
 import sys
 import os
+import socket
 
-msg_utf8 = "Test UTF-8"
-msg_uni = u"Test Unicode"
+msg_utf8 = "Test UTF-8".encode('utf-8')
+msg_uni = "Test Unicode"
 
 logger = logging.getLogger('test.unicode')
 
@@ -37,6 +38,7 @@ formatter_console = logging.Formatter(format_str_console)
 lh_syslog = logging.handlers.SysLogHandler(
         address = '/dev/log',
         facility = logging.handlers.SysLogHandler.LOG_USER,
+        socktype = socket.SOCK_STREAM,
 )
 lh_console = logging.StreamHandler(sys.stderr)
 

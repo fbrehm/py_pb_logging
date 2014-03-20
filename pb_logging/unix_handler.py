@@ -11,6 +11,8 @@ import syslog
 import os.path
 import sys
 
+from numbers import Number
+
 # Third party modules
 
 # Own modules
@@ -90,6 +92,12 @@ class UnixSyslogHandler(logging.Handler):
         "warning":  LOG_WARNING,
     }
 
+    priority_ids = {}
+    for key in list(priority_names.keys()):
+        val = priority_names[key]
+        if not val in priority_ids:
+            priority_ids[val] = key
+
     facility_names = {
         "auth":     LOG_AUTH,
         "authpriv": LOG_AUTHPRIV,
@@ -112,6 +120,12 @@ class UnixSyslogHandler(logging.Handler):
         "local6":   LOG_LOCAL6,
         "local7":   LOG_LOCAL7,
     }
+
+    facility_ids = {}
+    for key in list(facility_names.keys()):
+        val = facility_names[key]
+        if not val in facility_ids:
+            facility_ids[val] = key
 
     priority_map = {
         "DEBUG": "debug",
@@ -142,6 +156,7 @@ class UnixSyslogHandler(logging.Handler):
         """
 
         self._opened = False
+        self._facility = 'user'
 
         logging.Handler.__init__(self)
 
@@ -174,7 +189,7 @@ class UnixSyslogHandler(logging.Handler):
 
         self.formatter = None
 
-        syslog.openlog(self.ident, self.logopt, self.facility)
+        syslog.openlog(self.ident, self.logopt, self.facility_id)
 
         self._opened = True
 
@@ -182,22 +197,30 @@ class UnixSyslogHandler(logging.Handler):
     @property
     def opened(self):
         """Is the syslog object already opened."""
-        return getattr('_opened', False)
+        return getattr(self, '_opened', False)
 
     #--------------------------------------------------------------------------
     @property
     def facility(self):
         """The syslog facility name to use."""
-        return getattr('_facility', 'user')
+        return getattr(self, '_facility', 'user')
 
     @facility.setter
     def facility(self, value):
         if self.opened:
             return
-        used_facility = value.lower()
-        if not used_facility in self.facility_names:
-            used_facility = 'user'
-        self.facility = self._facility
+
+        used_facility = 'user'
+        if isinstance(value, Number):
+            v = int(value)
+            if not v in self.facility_ids:
+                raise ValueError("Invalid value %r for facility." % (value))
+            used_facility = self.facility_ids[v]
+        else:
+            used_facility = str(value).lower()
+            if not used_facility in self.facility_names:
+                raise ValueError("Invalid value %r for facility." % (value))
+        self._facility = used_facility
 
     #--------------------------------------------------------------------------
     @property
@@ -244,15 +267,23 @@ class UnixSyslogHandler(logging.Handler):
         exception information is present, it is NOT sent to the server.
         """
 
-        msg = self.format(record)
-        if isinstance(msg, unicode):
-            msg = msg.encode(self.encoding)
+        msg = record.msg
+        if sys.version_info[0] > 2:
+            if isinstance(msg, bytes):
+                msg = msg.decode(self.encoding)
+                record.msg = msg
+        else:
+            if isinstance(msg, unicode):
+                msg = msg.encode(self.encoding)
+                record.msg = msg
+
+        msg_send = self.format(record)
 
         level_name = self.mapPriority(record.levelname)
         level_id = self.priority_names[level_name]
 
         try:
-            syslog.syslog(level_id, msg)
+            syslog.syslog(level_id, msg_send)
         except (KeyboardInterrupt, SystemExit):
             raise
         except:

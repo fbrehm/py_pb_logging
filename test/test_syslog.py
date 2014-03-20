@@ -30,9 +30,29 @@ class TestSyslogTestcase(PbLoggingTestcase):
     #--------------------------------------------------------------------------
     def setUp(self):
 
-        self.msg_utf8 = "Test UTF-8 without wide characters."
-        self.msg_uni = u"Test Unicode with wide characters: 'äöüÄÖÜß»«¢„“”µ·…@ł€¶ŧ←↓→øþ¨æſðđŋħłĸ˝^'"
 
+        mb_chars = 'äöüÄÖÜß»«¢„“”µ·…@ł€¶ŧ←↓→øþ¨æſðđŋħłĸ˝^'
+        py_version = "Python %d.%d.%d" % (sys.version_info[0], sys.version_info[1],
+                sys.version_info[2])
+        self.msg_utf8 = "Test %s UTF-8 with wide characters: '%s'." % (
+                py_version, mb_chars)
+        self.msg_uni = "Test %s Unicode with wide characters: '%s'." % (
+                py_version, mb_chars)
+        log.debug("self.msg_utf8 (%s): %r",
+                self.msg_utf8.__class__.__name__, self.msg_utf8)
+        log.debug("self.msg_uni (%s): %r",
+                self.msg_uni.__class__.__name__, self.msg_uni)
+
+        log.debug("This is %s", py_version)
+        if sys.version_info[0] > 2:
+            self.msg_utf8 = self.msg_utf8.encode('utf-8')
+        else:
+            self.msg_uni = self.msg_uni.decode('utf-8')
+
+        log.debug("self.msg_utf8 (%s): %r",
+                self.msg_utf8.__class__.__name__, self.msg_utf8)
+        log.debug("self.msg_uni (%s): %r",
+                self.msg_uni.__class__.__name__, self.msg_uni)
 
     #--------------------------------------------------------------------------
     def test_import_modules(self):
@@ -49,6 +69,7 @@ class TestSyslogTestcase(PbLoggingTestcase):
         from pb_logging.unix_handler import UnixSyslogHandler
 
     #--------------------------------------------------------------------------
+    @unittest.skipUnless(os.path.exists('/dev/log'), "Socket '/dev/log' must exist.")
     def test_logging_syslog(self):
 
         log.info("Test logging with PbSysLogHandler ...")
@@ -112,7 +133,7 @@ class TestSyslogTestcase(PbLoggingTestcase):
         log.debug("Init of a UnixSyslogHandler ...")
         lh_unix_syslog = UnixSyslogHandler(
                 ident = appname,
-                facility = UnixSyslogHandler.LOG_INFO,
+                facility = UnixSyslogHandler.LOG_USER,
         )
 
         lh_unix_syslog.setFormatter(formatter_syslog)

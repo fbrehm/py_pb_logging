@@ -3,4 +3,5 @@
 *.substvars
 files
 profitbricks-python-logging
+profitbricks-python3-logging
 profitbricks-python-logging-doc

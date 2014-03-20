@@ -10,7 +10,7 @@
 __author__ = 'Frank Brehm <frank.brehm@profitbricks.com>'
 __copyright__ = '(C) 2010-2012 by profitbricks.com'
 __contact__ = 'frank.brehm@profitbricks.com'
-__version__ = '0.3.4'
+__version__ = '0.4.1'
 __license__ = 'LGPLv3+'
 
 # Standard modules
@@ -111,7 +111,7 @@ def _init_valid_facilities():
         }
 
     syslog_facility_name = {}
-    for fac_name in valid_syslog_facility.keys():
+    for fac_name in list(valid_syslog_facility.keys()):
         fac_nr = valid_syslog_facility[fac_name]
         syslog_facility_name[fac_nr] = fac_name
 
@@ -173,17 +173,17 @@ if __name__ == "__main__":
     if use_unix_syslog_handler():
         use_unixsyslog = 'yes'
 
-    print "Using UNIX syslog handler: %s" % (use_unixsyslog)
-    print ""
+    print("Using UNIX syslog handler: %s" % (use_unixsyslog))
+    print("")
 
     if args.verbose:
         pretty_printer = pprint.PrettyPrinter(indent = 4)
-        print "valid_syslog_facility:\n" + pretty_printer.pformat(
-                valid_syslog_facility)
-        print ""
-        print "syslog_facility_name:\n" + pretty_printer.pformat(
-                syslog_facility_name)
-        print ""
+        print("valid_syslog_facility:\n" + pretty_printer.pformat(
+                valid_syslog_facility))
+        print("")
+        print("syslog_facility_name:\n" + pretty_printer.pformat(
+                syslog_facility_name))
+        print("")
 
 
 #==============================================================================
