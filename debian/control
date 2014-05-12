@@ -9,7 +9,6 @@ Build-Depends: debhelper (>= 7.3.5),
                python-argparse,
                python-docutils,
                python-epydoc,
-               python-support,
                python3-all,
                texlive-latex-base,
                texlive-latex-extra
@@ -22,7 +21,7 @@ X-Python3-Version: >=3.2
 
 Package: python-pb-logging
 Architecture: all
-Depends: python-argparse, python-support, ${misc:Depends}, ${python:Depends}
+Depends: python-argparse, ${misc:Depends}, ${python:Depends}
 Breaks: profitbricks-python-logging (<< 0.4.2-2~)
 Replaces: profitbricks-python-logging (<< 0.4.2-2~)
 Description: Python modules to extend logging mechanism
