@@ -9,7 +9,6 @@ Build-Depends: debhelper (>= 7.3.5),
                python-docutils,
                python-epydoc,
                python-support,
-               python3,
                python3-all,
                texlive-latex-base,
                texlive-latex-extra
