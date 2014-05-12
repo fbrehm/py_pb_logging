@@ -1,3 +1,14 @@
+pb-logging (0.4.2-2) wheezy; urgency=medium
+
+  * Disable DH_VERBOSE.
+  * Simplify debian/rules.
+  * Rename source package to pb-logging.
+  * Rename profitbricks-python-logging to python-pb-logging.
+  * Bump Standard-Version to 3.9.5 (no changes required).
+  * Add Homepage field pointing to gitweb.
+
+ -- Benjamin Drung <benjamin.drung@profitbricks.com>  Mon, 12 May 2014 14:17:01 +0200
+
 profitbricks-python-logging (0.4.2-1) wheezy; urgency=medium
 
   * Version bump
