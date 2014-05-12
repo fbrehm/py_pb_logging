@@ -1,3 +1,9 @@
+pb-logging (0.4.2-3) wheezy; urgency=medium
+
+  * Drop unused python-support from dependencies.
+
+ -- Benjamin Drung <benjamin.drung@profitbricks.com>  Mon, 12 May 2014 14:55:42 +0200
+
 pb-logging (0.4.2-2) wheezy; urgency=medium
 
   * Disable DH_VERBOSE.
