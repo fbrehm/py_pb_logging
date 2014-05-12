@@ -18,31 +18,69 @@ Vcs-Browser: http://git.pb.local/gitweb/?p=python/pb-logging.git;a=summary
 X-Python-Version: >=2.6
 X-Python3-Version: >=3.2
 
-Package: profitbricks-python-logging
+Package: python-pb-logging
 Architecture: all
 Depends: python-argparse, python-support, ${misc:Depends}, ${python:Depends}
-Description: Python modules to extend logging mechanism.
- .
+Breaks: profitbricks-python-logging (<< 0.4.2-2~)
+Replaces: profitbricks-python-logging (<< 0.4.2-2~)
+Description: Python modules to extend logging mechanism
  The following objects are supported by this package:
-   - ColoredFormatter - for colored output on the system console
-   - PbSysLogHandler - to avoid BOM errors in syslog messages
-   - UnixSyslogHandler - to support logging via syslog on systems without /dev/log
+  - ColoredFormatter - for colored output on the system console
+  - PbSysLogHandler - to avoid BOM errors in syslog messages
+  - UnixSyslogHandler - to support logging via syslog on systems without
+    /dev/log
+ .
+ This is the Python 2 version of the package.
 
-Package: profitbricks-python3-logging
+Package: python3-pb-logging
 Architecture: all
 Depends: ${misc:Depends}, ${python3:Depends}
-Description: Python3 modules to extend logging mechanism.
- .
+Breaks: profitbricks-python3-logging (<< 0.4.2-2~)
+Replaces: profitbricks-python3-logging (<< 0.4.2-2~)
+Description: Python3 modules to extend logging mechanism
  The following objects are supported by this package:
-   - ColoredFormatter - for colored output on the system console
-   - PbSysLogHandler - to avoid BOM errors in syslog messages
-   - UnixSyslogHandler - to support logging via syslog on systems without /dev/log
+  - ColoredFormatter - for colored output on the system console
+  - PbSysLogHandler - to avoid BOM errors in syslog messages
+  - UnixSyslogHandler - to support logging via syslog on systems without
+    /dev/log
+ .
+ This is the Python 3 version of the package.
 
-Package: profitbricks-python-logging-doc
+Package: python-pb-logging-doc
 Architecture: all
+Section: doc
+Depends: ${misc:Depends}
 Suggests: pdf-viewer,
           profitbricks-python-logging (= ${binary:Version}),
           www-browser
+Breaks: profitbricks-python-logging-doc (<< 0.4.2-2~)
+Replaces: profitbricks-python-logging-doc (<< 0.4.2-2~)
 Description: Python modules to extend logging mechanism - documentation
+ The following objects are supported by this package:
+  - ColoredFormatter - for colored output on the system console
+  - PbSysLogHandler - to avoid BOM errors in syslog messages
+  - UnixSyslogHandler - to support logging via syslog on systems without
+    /dev/log
  .
  This package contains the module documentation in HTML and PDF format.
+
+Package: profitbricks-python-logging
+Depends: python-pb-logging, ${misc:Depends}
+Architecture: all
+Section: oldlibs
+Description: transitional dummy package
+ This is a transitional dummy package. It can safely be removed.
+
+Package: profitbricks-python3-logging
+Depends: python3-pb-logging, ${misc:Depends}
+Architecture: all
+Section: oldlibs
+Description: transitional dummy package
+ This is a transitional dummy package. It can safely be removed.
+
+Package: profitbricks-python-logging-doc
+Depends: python-pb-logging-doc, ${misc:Depends}
+Architecture: all
+Section: oldlibs
+Description: transitional dummy package
+ This is a transitional dummy package. It can safely be removed.

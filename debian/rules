@@ -4,9 +4,9 @@
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
-BIN2_PKGNAME := profitbricks-python-logging
-BIN3_PKGNAME := profitbricks-python3-logging
-DOC_PKGNAME  := profitbricks-python-logging-doc
+BIN2_PKGNAME := python-pb-logging
+BIN3_PKGNAME := python3-pb-logging
+DOC_PKGNAME  := python-pb-logging-doc
 
 INSTALL2_DIR := $(CURDIR)/debian/$(BIN2_PKGNAME)
 INSTALL3_DIR := $(CURDIR)/debian/$(BIN3_PKGNAME)
