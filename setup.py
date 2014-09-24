@@ -41,11 +41,15 @@ __license__ = 'LGPL3+'
 
 #------------------------------------
 def read(fname):
-    fh = open(fname, 'r')
-    try:
-        content = fh.read()
-    finally:
-        fh.close()
+
+    content = None
+    print("Reading %r ..." % (fname))
+    if sys.version_info[0] > 2:
+        with open(fname, 'r', encoding = 'utf-8') as fh:
+            content = fh.read()
+    else:
+        with open(fname, 'r') as fh:
+            content = fh.read()
     return content
 
 #------------------------------------
