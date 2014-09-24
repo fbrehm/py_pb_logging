@@ -1,3 +1,9 @@
+pb-logging (0.4.4-2) stable; urgency=low
+
+  * Build for squeeze
+
+ -- Frank Brehm <frank.brehm@profitbricks.com>  Wed, 24 Sep 2014 17:12:00 +0200
+
 pb-logging (0.4.4-1) wheezy; urgency=low
 
   * Bugfixing and documentation in pb_logging/colored.py
