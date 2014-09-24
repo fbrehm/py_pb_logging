@@ -34,6 +34,7 @@ class TestColoredFormatter(unittest.TestCase):
 
         msg = "Colored output"
 
+        print('')
         for key in sorted(COLOR_CODE.keys()):
 
             try:
@@ -58,4 +59,4 @@ if __name__ == '__main__':
 
 #==============================================================================
 
-# vim: tabstop=4 expandtab shiftwidth=4 softtabstop=4 nu
+# vim: tabstop=4 expandtab shiftwidth=4 softtabstop=4
