@@ -1,3 +1,9 @@
+pb-logging (0.4.4-1) wheezy; urgency=low
+
+  * Bugfixing and documentation in pb_logging/colored.py
+
+ -- Frank Brehm <frank.brehm@profitbricks.com>  Wed, 24 Sep 2014 17:05:58 +0200
+
 pb-logging (0.4.3-1) unstable; urgency=low
 
   * Declared for unstable

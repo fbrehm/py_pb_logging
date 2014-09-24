@@ -57,8 +57,10 @@ COLOR_CODE = {
     'LIGHT_PURPLE_BG': 105,
     'DARK_CYAN':        36,
     'AUQA':             96,
+    'AQUA':             96,
     'CYAN_BG':          46,
     'LIGHT_AUQA_BG':   106,
+    'LIGHT_AQUA_BG':   106,
     'DARK_GREEN':       32,
     'GREEN':            92,
     'GREEN_BG':         42,
@@ -112,9 +114,16 @@ class ColoredFormatter(logging.Formatter):
     }
 
     #--------------------------------------------------------------------------
-    def __init__(self, msg):
+    def __init__(self, fmt = None, datefmt = None):
+        """
+        Initialize the formatter with specified format strings.
 
-        logging.Formatter.__init__(self, msg)
+        Initialize the formatter either with the specified format string, or a
+        default. Allow for specialized date formatting with the optional
+        datefmt argument (if omitted, you get the ISO8601 format).
+        """
+
+        logging.Formatter.__init__(self, fmt, datefmt)
 
     #------------------------------------------------------------
     @property
@@ -168,6 +177,9 @@ class ColoredFormatter(logging.Formatter):
 
     #--------------------------------------------------------------------------
     def format(self, record):
+        """
+        Format the specified record as text.
+        """
 
         record = copy.copy(record)
         levelname = record.levelname
@@ -223,4 +235,4 @@ if __name__ == "__main__":
 
 #==============================================================================
 
-# vim: tabstop=4 expandtab shiftwidth=4 softtabstop=4 nu
+# vim: tabstop=4 expandtab shiftwidth=4 softtabstop=4
