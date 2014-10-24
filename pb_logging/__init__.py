@@ -10,7 +10,7 @@
 __author__ = 'Frank Brehm <frank.brehm@profitbricks.com>'
 __copyright__ = '(C) 2010-2012 by profitbricks.com'
 __contact__ = 'frank.brehm@profitbricks.com'
-__version__ = '0.4.4'
+__version__ = '0.4.5'
 __license__ = 'LGPLv3+'
 
 # Standard modules
@@ -20,7 +20,7 @@ import logging
 import logging.handlers
 import syslog
 
-#------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 # Module variables
 
 valid_syslog_facility = {}
@@ -36,7 +36,8 @@ The reverse dictionary to valid_syslog_facility with all facility values
 as keys and their names as values.
 """
 
-#==============================================================================
+
+# =============================================================================
 def use_unix_syslog_handler():
     """
     Use UnixSyslogHandler for logging instead of SyslogHandler.
@@ -54,7 +55,8 @@ def use_unix_syslog_handler():
 
     return use_syslog
 
-#==============================================================================
+
+# =============================================================================
 def _init_valid_facilities():
     """
     Initialise the module variables valid_syslog_facility and
@@ -115,7 +117,8 @@ def _init_valid_facilities():
         fac_nr = valid_syslog_facility[fac_name]
         syslog_facility_name[fac_nr] = fac_name
 
-#==============================================================================
+
+# =============================================================================
 def get_syslog_facility_name(syslog_facility):
     """
     Returns the name of the given syslog facility.
@@ -132,7 +135,8 @@ def get_syslog_facility_name(syslog_facility):
 
     return None
 
-#==============================================================================
+
+# =============================================================================
 def get_syslog_facility_of_name(facility_name):
     """
     Returns the numeric value of the given syslog facility name.
@@ -153,7 +157,7 @@ def get_syslog_facility_of_name(facility_name):
 
     return None
 
-#==============================================================================
+# =============================================================================
 
 _init_valid_facilities()
 
@@ -163,10 +167,11 @@ if __name__ == "__main__":
     import argparse
 
     arg_parser = argparse.ArgumentParser(
-        prog = 'pb_logging/__init__.py',
+        prog='pb_logging/__init__.py',
     )
-    arg_parser.add_argument("-v", "--verbosity", action = "count",
-            dest = 'verbose', help = 'Increase the verbosity level')
+    arg_parser.add_argument(
+        "-v", "--verbosity", action="count",
+        dest='verbose', help='Increase the verbosity level')
     args = arg_parser.parse_args()
 
     use_unixsyslog = 'no'
@@ -177,14 +182,16 @@ if __name__ == "__main__":
     print("")
 
     if args.verbose:
-        pretty_printer = pprint.PrettyPrinter(indent = 4)
-        print("valid_syslog_facility:\n" + pretty_printer.pformat(
+        pretty_printer = pprint.PrettyPrinter(indent=4)
+        print(
+            "valid_syslog_facility:\n" + pretty_printer.pformat(
                 valid_syslog_facility))
         print("")
-        print("syslog_facility_name:\n" + pretty_printer.pformat(
+        print(
+            "syslog_facility_name:\n" + pretty_printer.pformat(
                 syslog_facility_name))
         print("")
 
 
-#==============================================================================
-# vim: fileencoding=utf-8 filetype=python ts=4
+# =============================================================================
+# vim: fileencoding=utf-8 filetype=python ts=4 et
