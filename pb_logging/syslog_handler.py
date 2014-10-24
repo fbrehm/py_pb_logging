@@ -23,19 +23,19 @@ from logging.handlers import SysLogHandler
 
 __version__ = '0.2.1'
 
-#==============================================================================
 
+# =============================================================================
 class PbSysLogHandler(SysLogHandler):
     """
     A wrapper  logging handler for logging.handlers.SysLogHandler
     to avoid BOM errors in syslog messages.
     """
 
-    def __init__(self,
-            address = ('localhost', SYSLOG_UDP_PORT),
-            facility = SysLogHandler.LOG_USER,
-            socktype = None,
-            encoding = "utf-8",
+    def __init__(
+        self, address=('localhost', SYSLOG_UDP_PORT),
+            facility=SysLogHandler.LOG_USER,
+            socktype=None,
+            encoding="utf-8",
             ):
         """
         Initialize the PbSysLogHandler.
@@ -45,9 +45,9 @@ class PbSysLogHandler(SysLogHandler):
 
         If facility is not specified, LOG_USER is used.
 
-        @param address: either the network socket of the syslog daemon (if given
-                        as tuple) or the filename of the UNIX socket of
-                        the syslog daemon (if given as str).
+        @param address: either the network socket of the syslog daemon
+                        (if given as tuple) or the filename of the UNIX socket
+                        of the syslog daemon (if given as str).
         @type address: tuple or str
         @param facility: syslog facility to use
         @type facility: int
@@ -76,9 +76,11 @@ class PbSysLogHandler(SysLogHandler):
                 raise OSError(errno.ENOENT, "File doesn't exists", address)
             mode = os.stat(address).st_mode
             if not stat.S_ISSOCK(mode):
-                raise OSError(errno.EPERM, "File is not a UNIX socket file", address)
+                raise OSError(
+                    errno.EPERM, "File is not a UNIX socket file", address)
             if not os.access(address, os.W_OK):
-                raise OSError(errno.EPERM, "No write access to socket", address)
+                raise OSError(
+                    errno.EPERM, "No write access to socket", address)
 
             do_ux_socket = True
 
@@ -96,7 +98,7 @@ class PbSysLogHandler(SysLogHandler):
         @type: str
         """
 
-    #--------------------------------------------------------------------------
+    # -------------------------------------------------------------------------
     def _connect_unixsocket(self, address):
 
         use_socktype = getattr(self, 'socktype', None)
@@ -124,7 +126,7 @@ class PbSysLogHandler(SysLogHandler):
                 self.socket.close()
                 raise
 
-    #--------------------------------------------------------------------------
+    # -------------------------------------------------------------------------
     def emit(self, record):
         """
         Wrapper method for SysLogHandler.emit() to encode an unicode message
@@ -143,12 +145,12 @@ class PbSysLogHandler(SysLogHandler):
 
         SysLogHandler.emit(self, record)
 
-#==============================================================================
+# =============================================================================
 
 if __name__ == "__main__":
 
     pass
 
-#==============================================================================
+# =============================================================================
 
 # vim: tabstop=4 expandtab shiftwidth=4 softtabstop=4 nu
