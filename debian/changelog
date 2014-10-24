@@ -1,3 +1,10 @@
+pb-logging (0.4.5-1) wheezy; urgency=low
+
+  * Declared for unstable
+  * Applied PEP8 rules to different files
+
+ -- Frank Brehm <frank.brehm@profitbricks.com>  Sat, 25 Oct 2014 00:30:47 +0200
+
 pb-logging (0.4.4-2) stable; urgency=low
 
   * Build for squeeze
