@@ -18,7 +18,7 @@ import copy
 
 # from pb_provisioning.common import to_unicode_or_bust, to_utf8_or_bust
 
-__version__ = '0.1.2'
+__version__ = '0.1.3'
 
 # =============================================================================
 # Color coding module variables and helper functions
@@ -71,8 +71,11 @@ COLOR_CODE = {
 
 # -----------------------------------------------------------------------------
 def termcode(num):
+    """
+    Output of an ANSII terminal code.
+    """
 
-    return '\033[%sm' % (num)
+    return('\033[%sm' % (num))
 
 
 # -----------------------------------------------------------------------------
@@ -92,20 +95,22 @@ def colorstr(message, color):
 
     tcode = ''
     if isinstance(color, (list, tuple)):
-        for c in color:
-            tcode += termcode(COLOR_CODE[c])
+        for clr in color:
+            tcode += termcode(COLOR_CODE[clr])
     else:
         tcode = termcode(COLOR_CODE[color])
 
     return tcode + message + termcode(COLOR_CODE['ENDC'])
 
-logger = logging.getLogger(__name__)
+LOG = logging.getLogger(__name__)
 
 
 # =============================================================================
 class ColoredFormatter(logging.Formatter):
-    # A variant of code found at:
-    #  http://stackoverflow.com/questions/384076/how-can-i-make-the-python-logging-output-to-be-colored
+    """
+    A variant of code found at:
+    http://stackoverflow.com/questions/384076/how-can-i-make-the-python-logging-output-to-be-colored
+    """
 
     LEVEL_COLOR = {
         'DEBUG':    None,
@@ -219,21 +224,21 @@ if __name__ == "__main__":
 
     print("")
 
-    logger.setLevel(logging.DEBUG)
+    LOG.setLevel(logging.DEBUG)
     console = logging.StreamHandler()
     console.setFormatter(
         ColoredFormatter('%(name)s: %(message)s (%(filename)s:%(lineno)d)'))
-    logger.addHandler(console)
+    LOG.addHandler(console)
 
     fh = logging.FileHandler('/tmp/test.log', 'w')
     fh.setFormatter(logging.Formatter('%(name)s: %(message)s'))
-    logger.addHandler(fh)
+    LOG.addHandler(fh)
 
-    logger.debug('debug')
-    logger.info('info')
-    logger.warning('Warning')
-    logger.error('ERROR')
-    logger.critical('CRITICAL!!!')
+    LOG.debug('debug')
+    LOG.info('info')
+    LOG.warning('Warning')
+    LOG.error('ERROR')
+    LOG.critical('CRITICAL!!!')
 
 
 # =============================================================================
