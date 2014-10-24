@@ -6,21 +6,21 @@
 
 # Standard modules
 import logging
-#import os.path
-#import sys
+# import os.path
+# import sys
 import copy
 
 # Third party modules
 
 # Own modules
 
-#import pb_provisioning.common
+# import pb_provisioning.common
 
-#from pb_provisioning.common import to_unicode_or_bust, to_utf8_or_bust
+# from pb_provisioning.common import to_unicode_or_bust, to_utf8_or_bust
 
-__version__ = '0.1.1'
+__version__ = '0.1.2'
 
-#==============================================================================
+# =============================================================================
 # Color coding module variables and helper functions
 
 COLOR_CODE = {
@@ -68,12 +68,14 @@ COLOR_CODE = {
     'BLACK':            30,
 }
 
-#------------------------------------------------------------------------------
+
+# -----------------------------------------------------------------------------
 def termcode(num):
 
     return '\033[%sm' % (num)
 
-#------------------------------------------------------------------------------
+
+# -----------------------------------------------------------------------------
 def colorstr(message, color):
     """
     Wrapper function to colorize the message.
@@ -99,8 +101,8 @@ def colorstr(message, color):
 
 logger = logging.getLogger(__name__)
 
-#==============================================================================
 
+# =============================================================================
 class ColoredFormatter(logging.Formatter):
     # A variant of code found at:
     #  http://stackoverflow.com/questions/384076/how-can-i-make-the-python-logging-output-to-be-colored
@@ -113,8 +115,8 @@ class ColoredFormatter(logging.Formatter):
         'CRITICAL': 'RED_BG',
     }
 
-    #--------------------------------------------------------------------------
-    def __init__(self, fmt = None, datefmt = None):
+    # -------------------------------------------------------------------------
+    def __init__(self, fmt=None, datefmt=None):
         """
         Initialize the formatter with specified format strings.
 
@@ -125,7 +127,7 @@ class ColoredFormatter(logging.Formatter):
 
         logging.Formatter.__init__(self, fmt, datefmt)
 
-    #------------------------------------------------------------
+    # -----------------------------------------------------------
     @property
     def color_debug(self):
         """The color used to output debug messages."""
@@ -135,7 +137,7 @@ class ColoredFormatter(logging.Formatter):
     def color_debug(self, value):
         self.LEVEL_COLOR['DEBUG'] = value
 
-    #------------------------------------------------------------
+    # -----------------------------------------------------------
     @property
     def color_info(self):
         """The color used to output info messages."""
@@ -145,7 +147,7 @@ class ColoredFormatter(logging.Formatter):
     def color_info(self, value):
         self.LEVEL_COLOR['INFO'] = value
 
-    #------------------------------------------------------------
+    # -----------------------------------------------------------
     @property
     def color_warning(self):
         """The color used to output warning messages."""
@@ -155,7 +157,7 @@ class ColoredFormatter(logging.Formatter):
     def color_warning(self, value):
         self.LEVEL_COLOR['WARNING'] = value
 
-    #------------------------------------------------------------
+    # -----------------------------------------------------------
     @property
     def color_error(self):
         """The color used to output error messages."""
@@ -165,7 +167,7 @@ class ColoredFormatter(logging.Formatter):
     def color_error(self, value):
         self.LEVEL_COLOR['ERROR'] = value
 
-    #------------------------------------------------------------
+    # -----------------------------------------------------------
     @property
     def color_critical(self):
         """The color used to output critical messages."""
@@ -175,7 +177,7 @@ class ColoredFormatter(logging.Formatter):
     def color_critical(self, value):
         self.LEVEL_COLOR['CRITICAL'] = value
 
-    #--------------------------------------------------------------------------
+    # -------------------------------------------------------------------------
     def format(self, record):
         """
         Format the specified record as text.
@@ -195,13 +197,14 @@ class ColoredFormatter(logging.Formatter):
             record.threadName = colorstr(record.threadName, 'BOLD')
 
             if self.LEVEL_COLOR[levelname] is not None:
-                record.levelname = colorstr(levelname, self.LEVEL_COLOR[levelname])
+                record.levelname = colorstr(
+                    levelname, self.LEVEL_COLOR[levelname])
                 record.msg = colorstr(record.msg, self.LEVEL_COLOR[levelname])
 
         return logging.Formatter.format(self, record)
 
 
-#==============================================================================
+# =============================================================================
 
 if __name__ == "__main__":
 
@@ -233,6 +236,6 @@ if __name__ == "__main__":
     logger.critical('CRITICAL!!!')
 
 
-#==============================================================================
+# =============================================================================
 
 # vim: tabstop=4 expandtab shiftwidth=4 softtabstop=4
