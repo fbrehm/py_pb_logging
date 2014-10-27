@@ -1,3 +1,9 @@
+pb-logging (0.4.5-2) jessie; urgency=low
+
+  * Build for jessie
+
+ -- Frank Brehm <frank.brehm@profitbricks.com>  Mon, 27 Oct 2014 17:46:16 +0100
+
 pb-logging (0.4.5-1) wheezy; urgency=low
 
   * Declared for unstable
