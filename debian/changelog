@@ -1,3 +1,10 @@
+pb-logging (0.4.6) all; urgency=medium
+
+  * Switch to dpkg-source 3.0 (native) format
+  * Update homepage and git URLs to point to gitlab
+
+ -- Benjamin Drung <benjamin.drung@profitbricks.com>  Tue, 02 Dec 2014 15:42:04 +0100
+
 pb-logging (0.4.5-3) stable; urgency=low
 
   * Build for squeeze
