@@ -13,9 +13,9 @@ Build-Depends: debhelper (>= 7.3.5),
                texlive-latex-base,
                texlive-latex-extra
 Standards-Version: 3.9.5
-Homepage: http://git.pb.local/gitweb/?p=python/pb-logging.git
-Vcs-Browser: http://git.pb.local/gitweb/?p=python/pb-logging.git
-Vcs-Git: git+ssh://git.pb.local/srv/git/python/pb-logging.git
+Homepage: https://gitlab.pb.local/dcops/pb-logging
+Vcs-Browser: https://gitlab.pb.local/dcops/pb-logging
+Vcs-Git: git@gitlab.pb.local:dcops/pb-logging.git
 X-Python-Version: >=2.6
 X-Python3-Version: >=3.2
 
