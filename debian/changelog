@@ -1,3 +1,9 @@
+pb-logging (0.4.7) all; urgency=low
+
+  * Version bump for testing package build in new build chains
+
+ -- Frank Brehm <frank.brehm@profitbricks.com>  Thu, 28 May 2015 13:17:03 +0200
+
 pb-logging (0.4.6) all; urgency=medium
 
   * Switch to dpkg-source 3.0 (native) format
