@@ -4,6 +4,7 @@ Priority: extra
 Maintainer: Frank Brehm <frank.brehm@profitbricks.com>
 Uploaders: Benjamin Drung <benjamin.drung@profitbricks.com>
 Build-Depends: debhelper (>= 7.3.5),
+               dh-python,
                ghostscript,
                python-all (>= 2.6.5-2~),
                python-argparse,
