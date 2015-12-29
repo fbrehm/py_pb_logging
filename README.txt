@@ -67,7 +67,7 @@ lh_syslog = PbSysLogHandler(
 lh_syslog.setFormatter(formatter)
 logger.addHandler(lh_syslog)
 
-logger.debug(u'Unicode message.')
+logger.debug(u'An unicode message.')
 
 
 
