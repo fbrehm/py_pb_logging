@@ -13,7 +13,6 @@
 # Standard modules
 import logging
 import logging.handlers
-import syslog
 import sys
 import os
 import socket
@@ -27,18 +26,19 @@ logger.setLevel(logging.INFO)
 
 appname = os.path.basename(sys.argv[0])
 
-format_str_syslog = (appname + ': %(name)s(%(lineno)d) %(funcName)s() ' +
-        '%(levelname)s - %(message)s')
-format_str_console = ('[%(asctime)s]: ' + appname +
-        ': %(name)s(%(lineno)d) %(funcName)s() %(levelname)s - %(message)s')
+format_str_syslog = (
+    appname + ': %(name)s(%(lineno)d) %(funcName)s() %(levelname)s - %(message)s')
+format_str_console = (
+    '[%(asctime)s]: ' + appname +
+    ': %(name)s(%(lineno)d) %(funcName)s() %(levelname)s - %(message)s')
 
 formatter_syslog = logging.Formatter(format_str_syslog)
 formatter_console = logging.Formatter(format_str_console)
 
 lh_syslog = logging.handlers.SysLogHandler(
-        address = '/dev/log',
-        facility = logging.handlers.SysLogHandler.LOG_USER,
-        socktype = socket.SOCK_STREAM,
+    address='/dev/log',
+    facility=logging.handlers.SysLogHandler.LOG_USER,
+    socktype=socket.SOCK_STREAM,
 )
 lh_console = logging.StreamHandler(sys.stderr)
 
