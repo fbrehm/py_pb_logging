@@ -9,11 +9,15 @@
 @summary: test script (and module) for unit tests on logging objects
 '''
 
-import unittest
 import os
 import sys
 import logging
 import logging.handlers
+
+try:
+    import unittest2 as unittest
+except ImportError:
+    import unittest
 
 libdir = os.path.abspath(os.path.join(os.path.dirname(sys.argv[0]), '..'))
 sys.path.insert(0, libdir)
@@ -21,7 +25,7 @@ sys.path.insert(0, libdir)
 import general
 from general import PbLoggingTestcase, get_arg_verbose, init_root_logger
 
-log = logging.getLogger(__name__)
+log = logging.getLogger('test_syslog')
 
 #==============================================================================
 
