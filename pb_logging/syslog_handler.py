@@ -6,8 +6,6 @@
 """
 
 # Standard modules
-import logging
-import logging.handlers
 import socket
 import sys
 import os
@@ -21,7 +19,7 @@ from logging.handlers import SysLogHandler
 
 # Own modules
 
-__version__ = '0.2.1'
+__version__ = '0.2.2'
 
 
 # =============================================================================
@@ -153,4 +151,4 @@ if __name__ == "__main__":
 
 # =============================================================================
 
-# vim: tabstop=4 expandtab shiftwidth=4 softtabstop=4 nu
+# vim: tabstop=4 expandtab shiftwidth=4 softtabstop=4
