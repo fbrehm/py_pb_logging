@@ -1,3 +1,10 @@
+pb-logging (0.4.10) UNRELEASED; urgency=medium
+
+  * Changes on setup.py for moved Git URL
+  * Apply flake8 rules to all modules, cosmetic changes
+
+ -- Frank Brehm <frank.brehm@profitbricks.com>  Wed, 30 Dec 2015 11:13:39 +0100
+
 pb-logging (0.4.9) all; urgency=low
 
   * Added dh_python to build dependencies in debian/control.
