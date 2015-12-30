@@ -18,7 +18,7 @@ import copy
 
 # from pb_provisioning.common import to_unicode_or_bust, to_utf8_or_bust
 
-__version__ = '0.1.3'
+__version__ = '0.1.4'
 
 # =============================================================================
 # Color coding module variables and helper functions
@@ -109,7 +109,7 @@ LOG = logging.getLogger(__name__)
 class ColoredFormatter(logging.Formatter):
     """
     A variant of code found at:
-    http://stackoverflow.com/questions/384076/how-can-i-make-the-python-logging-output-to-be-colored
+    http://stackoverflow.com/questions/384076/how-can-i-make-the-python-logging-output-to-be-colored    # noqa
     """
 
     LEVEL_COLOR = {
