@@ -21,7 +21,6 @@ except ImportError:
 libdir = os.path.abspath(os.path.join(os.path.dirname(sys.argv[0]), '..'))
 sys.path.insert(0, libdir)
 
-import general
 from general import PbLoggingTestcase, get_arg_verbose, init_root_logger
 
 log = logging.getLogger('test_colored')
@@ -40,7 +39,7 @@ class TestColoredFormatter(PbLoggingTestcase):
         log.info("Test importing all appropriate modules ...")
 
         log.debug("Importing ColoredFormatter from pb_logging.colored ...")
-        from pb_logging.colored import ColoredFormatter
+        from pb_logging.colored import ColoredFormatter     # noqa
 
     #--------------------------------------------------------------------------
     def test_colorcode(self):
@@ -59,7 +58,7 @@ class TestColoredFormatter(PbLoggingTestcase):
                 print('%s: %s' % (key, colorstr(msg, key)))
             except Exception as e:
                 self.fail("Failed to generate colored string %r with %s: %s" % (
-                        key, e.__class__.__name__, str(e)))
+                    key, e.__class__.__name__, str(e)))
 
     #--------------------------------------------------------------------------
     def test_object(self):
@@ -69,11 +68,11 @@ class TestColoredFormatter(PbLoggingTestcase):
         from pb_logging.colored import ColoredFormatter
 
         try:
-            formatter = ColoredFormatter(
-                    '%(name)s: %(message)s (%(filename)s:%(lineno)d)')
+            formatter = ColoredFormatter(                                   # noqa
+                '%(name)s: %(message)s (%(filename)s:%(lineno)d)')
         except Exception as e:
             self.fail("Could not instatiate ColoredFormatter object with %s: %s" % (
-                    e.__class__.__name__, str(e)))
+                e.__class__.__name__, str(e)))
 
 #==============================================================================
 
@@ -93,7 +92,7 @@ if __name__ == '__main__':
     suite.addTest(TestColoredFormatter('test_colorcode', verbose))
     suite.addTest(TestColoredFormatter('test_object', verbose))
 
-    runner = unittest.TextTestRunner(verbosity = verbose)
+    runner = unittest.TextTestRunner(verbosity=verbose)
 
     result = runner.run(suite)
 
