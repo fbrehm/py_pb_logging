@@ -5,7 +5,7 @@
 @author: Frank Brehm
 @contact: frank.brehm@profitbricks.com
 @license: LGPL3+
-@copyright: © 2010 - 2014 ProfitBricks GmbH, Berlin
+@copyright: © 2010 - 2015 ProfitBricks GmbH, Berlin
 @summary: Additional loghandler and logging formater objects
 """
 
@@ -32,11 +32,11 @@ packet_version = pb_logging.__version__
 packet_name = 'pb_logging'
 debian_pkg_name = 'pb-logging'
 packet_descr = 'Additional loghandler and logging formater objects'
-git_url = 'ssh://git.profitbricks.localdomain/srv/git/python/pb-logging.git'
+git_url = 'https://gitlab.pb.local/dcops/pb-logging.git'
 
 __author__ = 'Frank Brehm'
 __contact__ = 'frank@profitbricks.com'
-__copyright__ = '(C) 2010 - 2014 by ProfitBricks GmbH, Berlin'
+__copyright__ = '(C) 2010 - 2015 by ProfitBricks GmbH, Berlin'
 __license__ = 'LGPL3+'
 
 #------------------------------------
@@ -98,6 +98,7 @@ setup(
             'Programming Language :: Python :: 3.2',
             'Programming Language :: Python :: 3.3',
             'Programming Language :: Python :: 3.4',
+            'Programming Language :: Python :: 3.5',
             'Topic :: Software Development :: Libraries :: Python Modules',
             'Topic :: System :: Logging',
 
