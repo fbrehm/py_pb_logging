@@ -22,6 +22,7 @@ import os
 import sys
 
 
+# =============================================================================
 class Colors:
     ENDC = 0
     BOLD = 1
@@ -69,16 +70,19 @@ class Colors:
         return '\x1b[{0}m{1}\x1b[{2}m'.format(color, text, Colors.ENDC)
 
 
+# =============================================================================
 def stdout_is_redirected():
     """ Check if stdout is redirected """
     return os.fstat(0) != os.fstat(1)
 
 
+# =============================================================================
 def stderr_is_redirected():
     """ Check if stderr is redirected """
     return os.fstat(0) != os.fstat(2)
 
 
+# =============================================================================
 def add_colors_to_streamhandler(colordict=None):
     """
     Patches Streamhandler to log colorized output.
@@ -112,8 +116,8 @@ def add_colors_to_streamhandler(colordict=None):
     logging.StreamHandler.emit = \
         add_coloring_to_emit_ansi(logging.StreamHandler.emit)
 
+# =============================================================================
 if __name__ == '__main__':
-    import logging
 
     logger = logging.getLogger()
     logger.setLevel(logging.DEBUG)
@@ -136,3 +140,7 @@ if __name__ == '__main__':
     logger.warn("test blub")
     logger.error("test blub")
     logger.critical("test blub")
+
+# =============================================================================
+
+# vim: tabstop=4 expandtab shiftwidth=4 softtabstop=4
