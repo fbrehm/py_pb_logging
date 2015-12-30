@@ -22,30 +22,24 @@ except ImportError:
 libdir = os.path.abspath(os.path.join(os.path.dirname(sys.argv[0]), '..'))
 sys.path.insert(0, libdir)
 
-import general
 from general import PbLoggingTestcase, get_arg_verbose, init_root_logger
 
 log = logging.getLogger('test_syslog')
 
-#==============================================================================
 
+#==============================================================================
 class TestSyslogTestcase(PbLoggingTestcase):
 
     #--------------------------------------------------------------------------
     def setUp(self):
 
-
         mb_chars = 'äöüÄÖÜß»«¢„“”µ·…@ł€¶ŧ←↓→øþ¨æſðđŋħłĸ˝^'
-        py_version = "Python %d.%d.%d" % (sys.version_info[0], sys.version_info[1],
-                sys.version_info[2])
-        self.msg_utf8 = "Test %s UTF-8 with wide characters: '%s'." % (
-                py_version, mb_chars)
-        self.msg_uni = "Test %s Unicode with wide characters: '%s'." % (
-                py_version, mb_chars)
-        log.debug("self.msg_utf8 (%s): %r",
-                self.msg_utf8.__class__.__name__, self.msg_utf8)
-        log.debug("self.msg_uni (%s): %r",
-                self.msg_uni.__class__.__name__, self.msg_uni)
+        py_version = "Python %d.%d.%d" % (
+            sys.version_info[0], sys.version_info[1], sys.version_info[2])
+        self.msg_utf8 = "Test %s UTF-8 with wide characters: '%s'." % (py_version, mb_chars)
+        self.msg_uni = "Test %s Unicode with wide characters: '%s'." % (py_version, mb_chars)
+        log.debug("self.msg_utf8 (%s): %r", self.msg_utf8.__class__.__name__, self.msg_utf8)
+        log.debug("self.msg_uni (%s): %r", self.msg_uni.__class__.__name__, self.msg_uni)
 
         log.debug("This is %s", py_version)
         if sys.version_info[0] > 2:
@@ -53,10 +47,8 @@ class TestSyslogTestcase(PbLoggingTestcase):
         else:
             self.msg_uni = self.msg_uni.decode('utf-8')
 
-        log.debug("self.msg_utf8 (%s): %r",
-                self.msg_utf8.__class__.__name__, self.msg_utf8)
-        log.debug("self.msg_uni (%s): %r",
-                self.msg_uni.__class__.__name__, self.msg_uni)
+        log.debug("self.msg_utf8 (%s): %r", self.msg_utf8.__class__.__name__, self.msg_utf8)
+        log.debug("self.msg_uni (%s): %r", self.msg_uni.__class__.__name__, self.msg_uni)
 
     #--------------------------------------------------------------------------
     def test_import_modules(self):
@@ -64,13 +56,13 @@ class TestSyslogTestcase(PbLoggingTestcase):
         log.info("Test importing all appropriate modules ...")
 
         log.debug("Importing ColoredFormatter from pb_logging.colored ...")
-        from pb_logging.colored import ColoredFormatter
+        from pb_logging.colored import ColoredFormatter                     # noqa
 
         log.debug("Importing PbSysLogHandler from pb_logging.syslog_handler ...")
-        from pb_logging.syslog_handler import PbSysLogHandler
+        from pb_logging.syslog_handler import PbSysLogHandler               # noqa
 
         log.debug("Importing UnixSyslogHandler from pb_logging.unix_handler ...")
-        from pb_logging.unix_handler import UnixSyslogHandler
+        from pb_logging.unix_handler import UnixSyslogHandler               # noqa
 
     #--------------------------------------------------------------------------
     @unittest.skipUnless(os.path.exists('/dev/log'), "Socket '/dev/log' must exist.")
@@ -85,18 +77,19 @@ class TestSyslogTestcase(PbLoggingTestcase):
         test_logger.setLevel(logging.INFO)
         appname = os.path.basename(sys.argv[0])
 
-        format_str_syslog = (appname + ': %(name)s(%(lineno)d) %(funcName)s() ' +
-                '%(levelname)s - %(message)s')
-        format_str_console = ('[%(asctime)s]: ' + appname +
-                ': %(name)s(%(lineno)d) %(funcName)s() %(levelname)s - %(message)s')
+        format_str_syslog = (
+            appname + ': %(name)s(%(lineno)d) %(funcName)s() %(levelname)s - %(message)s')
+        format_str_console = (
+            '[%(asctime)s]: ' + appname +
+            ': %(name)s(%(lineno)d) %(funcName)s() %(levelname)s - %(message)s')
 
         formatter_syslog = logging.Formatter(format_str_syslog)
         formatter_console = logging.Formatter(format_str_console)
 
         log.debug("Init of a PbSysLogHandler ...")
         lh_syslog = PbSysLogHandler(
-                address = '/dev/log',
-                facility = logging.handlers.SysLogHandler.LOG_USER,
+            address='/dev/log',
+            facility=logging.handlers.SysLogHandler.LOG_USER,
         )
 
         lh_syslog.setFormatter(formatter_syslog)
@@ -126,18 +119,19 @@ class TestSyslogTestcase(PbLoggingTestcase):
         test_logger.setLevel(logging.INFO)
         appname = os.path.basename(sys.argv[0])
 
-        format_str_syslog = (appname + ': %(name)s(%(lineno)d) %(funcName)s() ' +
-                '%(levelname)s - %(message)s')
-        format_str_console = ('[%(asctime)s]: ' + appname +
-                ': %(name)s(%(lineno)d) %(funcName)s() %(levelname)s - %(message)s')
+        format_str_syslog = (
+            appname + ': %(name)s(%(lineno)d) %(funcName)s() %(levelname)s - %(message)s')
+        format_str_console = (
+            '[%(asctime)s]: ' + appname +
+            ': %(name)s(%(lineno)d) %(funcName)s() %(levelname)s - %(message)s')
 
         formatter_syslog = logging.Formatter(format_str_syslog)
         formatter_console = logging.Formatter(format_str_console)
 
         log.debug("Init of a UnixSyslogHandler ...")
         lh_unix_syslog = UnixSyslogHandler(
-                ident = appname,
-                facility = UnixSyslogHandler.LOG_USER,
+            ident=appname,
+            facility=UnixSyslogHandler.LOG_USER,
         )
 
         lh_unix_syslog.setFormatter(formatter_syslog)
@@ -173,7 +167,7 @@ if __name__ == '__main__':
     suite.addTest(TestSyslogTestcase('test_logging_syslog', verbose))
     suite.addTest(TestSyslogTestcase('test_unix_syslog', verbose))
 
-    runner = unittest.TextTestRunner(verbosity = verbose)
+    runner = unittest.TextTestRunner(verbosity=verbose)
 
     result = runner.run(suite)
 
