@@ -1,9 +1,11 @@
-pb-logging (0.4.10) UNRELEASED; urgency=medium
+pb-logging (0.4.11) all; urgency=medium
 
   * Changes on setup.py for moved Git URL
   * Apply flake8 rules to all modules, cosmetic changes
+  * low Changed all copyrights from 2015 to 2016
+  * Removed increase-version.sh and pb-logging.ebuild
 
- -- Frank Brehm <frank.brehm@profitbricks.com>  Wed, 30 Dec 2015 11:13:39 +0100
+ -- Frank Brehm <frank.brehm@profitbricks.com>  Tue, 19 Jan 2016 12:13:50 +0100
 
 pb-logging (0.4.9) all; urgency=low
 
