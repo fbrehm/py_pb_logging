@@ -3,14 +3,14 @@
 """
 @author: Frank Brehm
 @contact: frank.brehm@profitbricks.com
-@copyright: © 2010 - 2015 by Frank Brehm, Berlin
+@copyright: © 2010 - 2016 by Frank Brehm, Berlin
 @summary: All modules for python logging stuff
 """
 
 __author__ = 'Frank Brehm <frank.brehm@profitbricks.com>'
-__copyright__ = '(C) 2010 - 2015 by profitbricks.com'
+__copyright__ = '(C) 2010 - 2016 by profitbricks.com'
 __contact__ = 'frank.brehm@profitbricks.com'
-__version__ = '0.4.10'
+__version__ = '0.4.11'
 __license__ = 'LGPLv3+'
 
 # Standard modules

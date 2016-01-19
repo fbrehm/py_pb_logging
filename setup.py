@@ -5,7 +5,7 @@
 @author: Frank Brehm
 @contact: frank.brehm@profitbricks.com
 @license: LGPL3+
-@copyright: © 2010 - 2015 ProfitBricks GmbH, Berlin
+@copyright: © 2010 - 2016 ProfitBricks GmbH, Berlin
 @summary: Additional loghandler and logging formater objects
 """
 
@@ -36,7 +36,7 @@ git_url = 'https://gitlab.pb.local/dcops/pb-logging.git'
 
 __author__ = 'Frank Brehm'
 __contact__ = 'frank@profitbricks.com'
-__copyright__ = '(C) 2010 - 2015 by ProfitBricks GmbH, Berlin'
+__copyright__ = '(C) 2010 - 2016 by ProfitBricks GmbH, Berlin'
 __license__ = 'LGPL3+'
 
 #------------------------------------
