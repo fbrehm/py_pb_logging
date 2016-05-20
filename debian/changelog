@@ -1,3 +1,11 @@
+pb-logging (0.5.1) all; urgency=medium
+
+  * Adding boolean parameter 'dark' to __init__() of ColoredFormatter to
+    initialize it with dark colors instead of bold ones.
+  * Adding two new unit test methods to test/test_colored.py
+
+ -- Frank Brehm <frank.brehm@profitbricks.com>  Fri, 20 May 2016 11:33:15 +0200
+
 pb-logging (0.4.11) all; urgency=medium
 
   * Changes on setup.py for moved Git URL
