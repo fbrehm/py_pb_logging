@@ -7,5 +7,6 @@
 build
 trace
 .idea
+.cache/
 /pb_logging.egg-info
 MANIFEST

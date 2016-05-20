@@ -18,7 +18,7 @@ import copy
 
 # from pb_provisioning.common import to_unicode_or_bust, to_utf8_or_bust
 
-__version__ = '0.1.4'
+__version__ = '0.2.0'
 
 # =============================================================================
 # Color coding module variables and helper functions
@@ -121,7 +121,7 @@ class ColoredFormatter(logging.Formatter):
     }
 
     # -------------------------------------------------------------------------
-    def __init__(self, fmt=None, datefmt=None):
+    def __init__(self, fmt=None, datefmt=None, dark=False):
         """
         Initialize the formatter with specified format strings.
 
@@ -131,6 +131,14 @@ class ColoredFormatter(logging.Formatter):
         """
 
         logging.Formatter.__init__(self, fmt, datefmt)
+        if dark:
+            # changing the default colors to "dark" because the xterm plugin
+            # for Jenkins cannot use bright colors
+            # see: http://stackoverflow.com/a/28071761
+            self.color_debug = 'DARK_CYAN'
+            self.color_info = 'DARK_GREEN'
+            self.color_warning = 'DARK_YELLOW'
+            self.color_error = 'DARK_RED'
 
     # -----------------------------------------------------------
     @property

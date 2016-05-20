@@ -12,6 +12,7 @@
 import os
 import sys
 import logging
+import copy
 
 try:
     import unittest2 as unittest
@@ -74,6 +75,75 @@ class TestColoredFormatter(PbLoggingTestcase):
             self.fail("Could not instatiate ColoredFormatter object with %s: %s" % (
                 e.__class__.__name__, str(e)))
 
+    # -------------------------------------------------------------------------
+    def test_colored_logging(self):
+
+        log.info("Testing logging with a ColoredFormatter object ...")
+
+        from pb_logging.colored import ColoredFormatter
+
+        fmt_str = '%(name)s: %(message)s (%(filename)s:%(lineno)d)'
+        test_logger = logging.getLogger('test.colored_logging')
+
+        orig_handlers = []
+        for log_handler in test_logger.handlers:
+            orig_handlers.append(log_handler)
+            test_logger.removeHandler(log_handler)
+
+        try:
+            c_formatter = ColoredFormatter(fmt_str)
+            lh_console = logging.StreamHandler(sys.stdout)
+            lh_console.setLevel(logging.DEBUG)
+            lh_console.setFormatter(c_formatter)
+            test_logger.addHandler(lh_console)
+
+            test_logger.debug('debug')
+            test_logger.info('info')
+            test_logger.warning('Warning')
+            test_logger.error('ERROR')
+            test_logger.critical('CRITICAL!!!')
+
+        finally:
+            for log_handler in test_logger.handlers:
+                test_logger.removeHandler(log_handler)
+            for log_handler in orig_handlers:
+                test_logger.addHandler(log_handler)
+
+    # -------------------------------------------------------------------------
+    def test_dark_colored_logging(self):
+
+        log.info("Testing logging with a ColoredFormatter object with dark colors ...")
+
+        from pb_logging.colored import ColoredFormatter
+
+        fmt_str = '%(name)s: %(message)s (%(filename)s:%(lineno)d)'
+        test_logger = logging.getLogger('test.colored_logging')
+
+        orig_handlers = []
+        for log_handler in test_logger.handlers:
+            orig_handlers.append(log_handler)
+            test_logger.removeHandler(log_handler)
+
+        try:
+            c_formatter = ColoredFormatter(fmt_str, dark=True)
+            lh_console = logging.StreamHandler(sys.stdout)
+            lh_console.setLevel(logging.DEBUG)
+            lh_console.setFormatter(c_formatter)
+            test_logger.addHandler(lh_console)
+
+            test_logger.debug('debug')
+            test_logger.info('info')
+            test_logger.warning('Warning')
+            test_logger.error('ERROR')
+            test_logger.critical('CRITICAL!!!')
+
+        finally:
+            for log_handler in test_logger.handlers:
+                test_logger.removeHandler(log_handler)
+            for log_handler in orig_handlers:
+                test_logger.addHandler(log_handler)
+
+
 #==============================================================================
 
 if __name__ == '__main__':
@@ -91,6 +161,8 @@ if __name__ == '__main__':
     suite.addTest(TestColoredFormatter('test_import_modules', verbose))
     suite.addTest(TestColoredFormatter('test_colorcode', verbose))
     suite.addTest(TestColoredFormatter('test_object', verbose))
+    suite.addTest(TestColoredFormatter('test_colored_logging', verbose))
+    suite.addTest(TestColoredFormatter('test_dark_colored_logging', verbose))
 
     runner = unittest.TextTestRunner(verbosity=verbose)
 
