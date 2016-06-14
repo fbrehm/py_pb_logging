@@ -1,3 +1,9 @@
+pb-logging (0.5.2) all; urgency=medium
+
+  * Changing setup.py from distutils to setuptools.
+
+ -- Frank Brehm <frank.brehm@profitbricks.com>  Tue, 14 Jun 2016 12:24:31 +0200
+
 pb-logging (0.5.1) all; urgency=medium
 
   * Adding boolean parameter 'dark' to __init__() of ColoredFormatter to
