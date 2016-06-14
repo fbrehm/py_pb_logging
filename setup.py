@@ -12,7 +12,7 @@
 import os
 import sys
 import re
-from distutils.core import setup, Command
+from setuptools import setup
 
 # own modules:
 cur_dir = os.getcwd()

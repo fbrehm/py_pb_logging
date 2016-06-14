@@ -10,3 +10,4 @@ trace
 .cache/
 /pb_logging.egg-info
 MANIFEST
+/dist/*
