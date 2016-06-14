@@ -10,7 +10,9 @@ Build-Depends: debhelper (>= 7.3.5),
                python-argparse,
                python-docutils,
                python-epydoc,
+               python-setuptools,
                python3-all,
+               python3-setuptools,
                texlive-latex-base,
                texlive-latex-extra
 Standards-Version: 3.9.5
