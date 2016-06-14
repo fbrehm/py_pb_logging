@@ -39,25 +39,28 @@ __contact__ = 'frank@profitbricks.com'
 __copyright__ = '(C) 2010 - 2016 by ProfitBricks GmbH, Berlin'
 __license__ = 'LGPL3+'
 
-#------------------------------------
+
+# ------------------------------------
 def read(fname):
 
     content = None
     print("Reading %r ..." % (fname))
     if sys.version_info[0] > 2:
-        with open(fname, 'r', encoding = 'utf-8') as fh:
+        with open(fname, 'r', encoding='utf-8') as fh:
             content = fh.read()
     else:
         with open(fname, 'r') as fh:
             content = fh.read()
     return content
 
-#------------------------------------
+
+# ------------------------------------
 debian_dir = os.path.join(cur_dir, 'debian')
 changelog_file = os.path.join(debian_dir, 'changelog')
 readme_file = os.path.join(cur_dir, 'README.txt')
 
-#------------------------------------
+
+# ------------------------------------
 def get_debian_version():
     if not os.path.isfile(changelog_file):
         return None
@@ -75,38 +78,37 @@ debian_version = get_debian_version()
 if debian_version is not None and debian_version != '':
     packet_version = debian_version
 
-#------------------------------------
-setup(
-    name = packet_name,
-    version = packet_version,
-    description = packet_descr,
-    long_description = read(readme_file),
-    author = __author__,
-    author_email = __contact__,
-    url = git_url,
-    license = __license__,
-    platforms = ['posix'],
-    packages = ['pb_logging'],
-    classifiers = [
-            'Development Status :: 4 - Beta',
-            'Environment :: Console',
-            'Intended Audience :: Developers',
-            'License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)',
-            'Natural Language :: English',
-            'Operating System :: POSIX',
-            'Programming Language :: Python :: 2.7',
-            'Programming Language :: Python :: 3.2',
-            'Programming Language :: Python :: 3.3',
-            'Programming Language :: Python :: 3.4',
-            'Programming Language :: Python :: 3.5',
-            'Topic :: Software Development :: Libraries :: Python Modules',
-            'Topic :: System :: Logging',
 
+# ------------------------------------
+setup(
+    name=packet_name,
+    version=packet_version,
+    description=packet_descr,
+    long_description=read(readme_file),
+    author=__author__,
+    author_email=__contact__,
+    url=git_url,
+    license=__license__,
+    platforms=['posix'],
+    packages=['pb_logging'],
+    classifiers=[
+        'Development Status :: 4 - Beta',
+        'Environment :: Console',
+        'Intended Audience :: Developers',
+        'License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)',
+        'Natural Language :: English',
+        'Operating System :: POSIX',
+        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3.2',
+        'Programming Language :: Python :: 3.3',
+        'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
+        'Topic :: Software Development :: Libraries :: Python Modules',
+        'Topic :: System :: Logging',
     ],
-    provides = [packet_name],
+    provides=[packet_name],
 )
 
-#========================================================================
+# ========================================================================
 
 # vim: fileencoding=utf-8 filetype=python ts=4 expandtab
-
