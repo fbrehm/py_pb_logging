@@ -44,7 +44,6 @@ __license__ = 'LGPL3+'
 def read(fname):
 
     content = None
-    print("Reading %r ..." % (fname))
     if sys.version_info[0] > 2:
         with open(fname, 'r', encoding='utf-8') as fh:
             content = fh.read()
