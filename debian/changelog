@@ -1,3 +1,9 @@
+pb-logging (0.5.3) all; urgency=low
+
+  * Pointless version dump for building packages for Ubuntu zesty
+
+ -- Frank Brehm <frank.brehm@profitbricks.com>  Tue, 22 Nov 2016 11:05:27 +0100
+
 pb-logging (0.5.2) all; urgency=medium
 
   * Changing setup.py from distutils to setuptools.
