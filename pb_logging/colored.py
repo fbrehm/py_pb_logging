@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-@summary: additional logging formatter for colored output via console
+:summary: additional logging formatter for colored output via console
 """
 
 # Standard modules
@@ -83,13 +83,13 @@ def colorstr(message, color):
     """
     Wrapper function to colorize the message.
 
-    @param message: The message to colorize
-    @type message: str
-    @param color: The color to use, must be one of the keys of COLOR_CODE
-    @type color: str
+    :param message: The message to colorize
+    :type message: str
+    :param color: The color to use, must be one of the keys of COLOR_CODE
+    :type color: str
 
-    @return: the colorized message
-    @rtype: str
+    :return: the colorized message
+    :rtype: str
 
     """
 

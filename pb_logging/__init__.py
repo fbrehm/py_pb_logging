@@ -2,10 +2,10 @@
 # -*- coding: utf-8 -*-
 """
 
-:author: Frank Brehm
-:contact: frank.brehm@profitbricks.com
-:copyright: © 2010 - 2016 by Frank Brehm, Berlin
-:summary: All modules for python logging stuff
+:Author: Frank Brehm
+:Contact: frank.brehm@profitbricks.com
+:Copyright: © 2010 - 2016 by Frank Brehm, Berlin
+:Summary: All modules for python logging stuff
 
 """
 
@@ -30,6 +30,7 @@ A dictionary with all valid syslog facility names as keys and their
 integer value as values.
 
 :type: dict
+
 """
 
 syslog_facility_name = {}
@@ -128,6 +129,7 @@ def get_syslog_facility_name(syslog_facility):
 
     :return: syslog facility name
     :rtype: str
+
     """
 
     global valid_syslog_facility, syslog_facility_name
@@ -146,6 +148,7 @@ def get_syslog_facility_of_name(facility_name):
 
     :return: syslog facility value
     :rtype: int
+
     """
 
     global valid_syslog_facility, syslog_facility_name

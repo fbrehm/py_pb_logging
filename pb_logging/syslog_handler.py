@@ -1,8 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-@summary: wrapping logging handler for logging.handlers.SysLogHandler
+
+:summary: wrapping logging handler for logging.handlers.SysLogHandler
           to avoid BOM errors in syslog messages
+
 """
 
 # Standard modules
@@ -43,18 +45,18 @@ class PbSysLogHandler(SysLogHandler):
 
         If facility is not specified, LOG_USER is used.
 
-        @param address: either the network socket of the syslog daemon
+        :param address: either the network socket of the syslog daemon
                         (if given as tuple) or the filename of the UNIX socket
                         of the syslog daemon (if given as str).
-        @type address: tuple or str
-        @param facility: syslog facility to use
-        @type facility: int
-        @param socktype: the socket type (socket.SOCK_DGRAM or
+        :type address: tuple or str
+        :param facility: syslog facility to use
+        :type facility: int
+        :param socktype: the socket type (socket.SOCK_DGRAM or
                          socket.SOCK_STREAM) to use.
                          Not used in Python2 <= 2.6 and Python3 <= 3.1.
-        @type socktype: int
-        @param encoding: the character set to use to encode unicode messages
-        @type encoding: str
+        :type socktype: int
+        :param encoding: the character set to use to encode unicode messages
+        :type encoding: str
 
         """
 
@@ -92,8 +94,8 @@ class PbSysLogHandler(SysLogHandler):
 
         self.encoding = encoding
         """
-        @ivar: the character set to use to encode unicode messages
-        @type: str
+        :ivar: the character set to use to encode unicode messages
+        :type: str
         """
 
     # -------------------------------------------------------------------------

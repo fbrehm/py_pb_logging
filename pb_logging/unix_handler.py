@@ -1,8 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 '''
-@summary: additional logging handler for the common logging framework
+
+:summary: additional logging handler for the common logging framework
           to combine it with syslog
+
 '''
 
 # Standard modules
@@ -142,17 +144,17 @@ class UnixSyslogHandler(logging.Handler):
         """
         Initialize a handler.
 
-        @param ident: Identifier of the syslog message, uses basename
+        :param ident: Identifier of the syslog message, uses basename
                       or current running program, if not given
-        @type ident: str
-        @param logopt: options for syslog.openlog(), see there for possible
+        :type ident: str
+        :param logopt: options for syslog.openlog(), see there for possible
                        values (linked with a binary or). Uses LOG_PID,
                        if not given.
-        @type logopt: int
-        @param facility: syslog facility to use.
-        @type facility: int
-        @param encoding: the character set to use to encode unicode messages
-        @type encoding: str
+        :type logopt: int
+        :param facility: syslog facility to use.
+        :type facility: int
+        :param encoding: the character set to use to encode unicode messages
+        :type encoding: str
 
         """
 
@@ -170,22 +172,28 @@ class UnixSyslogHandler(logging.Handler):
 
         self.ident = ident
         """
-        @ivar: Identifier of the syslog message.
-        @type: str
+
+        :ivar: Identifier of the syslog message.
+        :type: str
+
         """
 
         self.logopt = logopt
         """
-        @ivar: options for syslog.openlog()
-        @type: int
+
+        :ivar: options for syslog.openlog()
+        :type: int
+
         """
 
         self.facility = facility
 
         self.encoding = encoding
         """
-        @ivar: the character set to use to encode unicode messages
-        @type: str
+
+        :ivar: the character set to use to encode unicode messages
+        :type: str
+
         """
 
         self.formatter = None
@@ -250,11 +258,11 @@ class UnixSyslogHandler(logging.Handler):
 
         If no valid level name was given, "warning" is assumed.
 
-        @param level_name: the level name, which should be mapped
-        @type level_name: str
+        :param level_name: the level name, which should be mapped
+        :type level_name: str
 
-        @return: the numeric logging level code
-        @rtype: str
+        :return: the numeric logging level code
+        :rtype: str
 
         """
 
