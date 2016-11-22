@@ -1,10 +1,12 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 """
-@author: Frank Brehm
-@contact: frank.brehm@profitbricks.com
-@copyright: © 2010 - 2016 by Frank Brehm, Berlin
-@summary: All modules for python logging stuff
+
+:author: Frank Brehm
+:contact: frank.brehm@profitbricks.com
+:copyright: © 2010 - 2016 by Frank Brehm, Berlin
+:summary: All modules for python logging stuff
+
 """
 
 __author__ = 'Frank Brehm <frank.brehm@profitbricks.com>'
@@ -24,9 +26,10 @@ import syslog
 
 valid_syslog_facility = {}
 """
-a dictionary with all valid syslog facility names as keys and their
+A dictionary with all valid syslog facility names as keys and their
 integer value as values.
-@type: dict
+
+:type: dict
 """
 
 syslog_facility_name = {}
@@ -41,8 +44,8 @@ def use_unix_syslog_handler():
     """
     Use UnixSyslogHandler for logging instead of SyslogHandler.
 
-    @return: using UnixSyslogHandler
-    @rtype: bool
+    :return: using UnixSyslogHandler
+    :rtype: bool
 
     """
 
@@ -123,8 +126,8 @@ def get_syslog_facility_name(syslog_facility):
     Returns the name of the given syslog facility.
     Returns None, if not found.
 
-    @return: syslog facility name
-    @rtype: str
+    :return: syslog facility name
+    :rtype: str
     """
 
     global valid_syslog_facility, syslog_facility_name
@@ -141,8 +144,8 @@ def get_syslog_facility_of_name(facility_name):
     Returns the numeric value of the given syslog facility name.
     Returns None, if not found.
 
-    @return: syslog facility value
-    @rtype: int
+    :return: syslog facility value
+    :rtype: int
     """
 
     global valid_syslog_facility, syslog_facility_name
