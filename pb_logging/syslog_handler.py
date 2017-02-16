@@ -33,8 +33,7 @@ class PbSysLogHandler(SysLogHandler):
         self, address=('localhost', SYSLOG_UDP_PORT),
             facility=SysLogHandler.LOG_USER,
             socktype=None,
-            encoding="utf-8",
-            ):
+            encoding="utf-8"):
         """
         Initialize the PbSysLogHandler.
 
@@ -137,14 +136,14 @@ class PbSysLogHandler(SysLogHandler):
                 msg = msg.decode(self.encoding)
                 record.msg = msg
         else:
-            if isinstance(msg, unicode):
+            if isinstance(msg, unicode):                        # noqa
                 msg = msg.encode(self.encoding)
                 record.msg = msg
 
         SysLogHandler.emit(self, record)
 
-# =============================================================================
 
+# =============================================================================
 if __name__ == "__main__":
 
     pass

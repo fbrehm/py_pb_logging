@@ -91,9 +91,9 @@ def add_colors_to_streamhandler(colordict=None):
     """
     if not colordict:
         colordict = {
-            logging.CRITICAL:   Colors.YELLOW,
-            logging.ERROR:      Colors.RED,
-            logging.WARN:       Colors.DARK_YELLOW,
+            logging.CRITICAL: Colors.YELLOW,
+            logging.ERROR: Colors.RED,
+            logging.WARN: Colors.DARK_YELLOW,
         }
 
     def add_coloring_to_emit_ansi(fn):
@@ -115,6 +115,7 @@ def add_colors_to_streamhandler(colordict=None):
 
     logging.StreamHandler.emit = \
         add_coloring_to_emit_ansi(logging.StreamHandler.emit)
+
 
 # =============================================================================
 if __name__ == '__main__':

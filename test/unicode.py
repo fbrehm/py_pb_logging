@@ -48,6 +48,6 @@ logger.addHandler(lh_console)
 logger.info(msg_utf8)
 logger.info(msg_uni)
 
-#==============================================================================
+# =============================================================================
 
 # vim: tabstop=4 expandtab shiftwidth=4 softtabstop=4

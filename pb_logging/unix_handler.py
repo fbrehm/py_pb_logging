@@ -275,7 +275,7 @@ class UnixSyslogHandler(logging.Handler):
                 msg = msg.decode(self.encoding)
                 record.msg = msg
         else:
-            if isinstance(msg, unicode):
+            if isinstance(msg, unicode):                # noqa
                 msg = msg.encode(self.encoding)
                 record.msg = msg
 
@@ -291,8 +291,8 @@ class UnixSyslogHandler(logging.Handler):
         except:
             self.handleError(record)
 
-# =============================================================================
 
+# =============================================================================
 if __name__ == "__main__":
 
     pass

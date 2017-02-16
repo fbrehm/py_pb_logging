@@ -73,6 +73,7 @@ def get_debian_version():
         return None
     return match.group(1).strip()
 
+
 debian_version = get_debian_version()
 if debian_version is not None and debian_version != '':
     packet_version = debian_version
