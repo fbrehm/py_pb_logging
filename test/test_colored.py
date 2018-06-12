@@ -12,7 +12,6 @@
 import os
 import sys
 import logging
-import copy
 
 try:
     import unittest2 as unittest
@@ -27,14 +26,14 @@ from general import PbLoggingTestcase, get_arg_verbose, init_root_logger
 log = logging.getLogger('test_colored')
 
 
-#==============================================================================
+# =============================================================================
 class TestColoredFormatter(PbLoggingTestcase):
 
-    #--------------------------------------------------------------------------
+    # -------------------------------------------------------------------------
     def setUp(self):
         pass
 
-    #--------------------------------------------------------------------------
+    # -------------------------------------------------------------------------
     def test_import_modules(self):
 
         log.info("Test importing all appropriate modules ...")
@@ -42,7 +41,7 @@ class TestColoredFormatter(PbLoggingTestcase):
         log.debug("Importing ColoredFormatter from pb_logging.colored ...")
         from pb_logging.colored import ColoredFormatter     # noqa
 
-    #--------------------------------------------------------------------------
+    # -------------------------------------------------------------------------
     def test_colorcode(self):
 
         log.info("Testing colored output ...")
@@ -61,7 +60,7 @@ class TestColoredFormatter(PbLoggingTestcase):
                 self.fail("Failed to generate colored string %r with %s: %s" % (
                     key, e.__class__.__name__, str(e)))
 
-    #--------------------------------------------------------------------------
+    # -------------------------------------------------------------------------
     def test_object(self):
 
         log.info("Testing init of a ColoredFormatter object ...")
@@ -144,7 +143,7 @@ class TestColoredFormatter(PbLoggingTestcase):
                 test_logger.addHandler(log_handler)
 
 
-#==============================================================================
+# =============================================================================
 
 if __name__ == '__main__':
 
@@ -168,6 +167,6 @@ if __name__ == '__main__':
 
     result = runner.run(suite)
 
-#==============================================================================
+# =============================================================================
 
 # vim: tabstop=4 expandtab shiftwidth=4 softtabstop=4

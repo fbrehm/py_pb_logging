@@ -73,6 +73,7 @@ def get_debian_version():
         return None
     return match.group(1).strip()
 
+
 debian_version = get_debian_version()
 if debian_version is not None and debian_version != '':
     packet_version = debian_version
@@ -102,6 +103,8 @@ setup(
         'Programming Language :: Python :: 3.3',
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
         'Topic :: Software Development :: Libraries :: Python Modules',
         'Topic :: System :: Logging',
     ],

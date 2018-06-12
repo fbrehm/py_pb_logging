@@ -1,3 +1,15 @@
+pb-logging (0.5.5) all; urgency=low
+
+  * Minor changes for newer Python3
+
+ -- Frank Brehm <frank@brehm-online.com>  Tue, 12 Jun 2018 21:47:11 +0200
+
+pb-logging (0.5.4) all; urgency=low
+
+  * Applying Flake8 rules
+
+ -- Frank Brehm <frank@lena.home.brehm-online.com>  Thu, 16 Feb 2017 11:43:51 +0100
+
 pb-logging (0.5.3) all; urgency=low
 
   * Pointless version dump for building packages for Ubuntu zesty

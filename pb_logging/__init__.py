@@ -10,7 +10,7 @@
 __author__ = 'Frank Brehm <frank.brehm@profitbricks.com>'
 __copyright__ = '(C) 2010 - 2016 by profitbricks.com'
 __contact__ = 'frank.brehm@profitbricks.com'
-__version__ = '0.5.3'
+__version__ = '0.5.5'
 __license__ = 'LGPLv3+'
 
 # Standard modules
@@ -155,6 +155,7 @@ def get_syslog_facility_of_name(facility_name):
         return valid_syslog_facility[facility_name]
 
     return None
+
 
 # =============================================================================
 

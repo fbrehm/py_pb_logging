@@ -27,10 +27,10 @@ from general import PbLoggingTestcase, get_arg_verbose, init_root_logger
 log = logging.getLogger('test_syslog')
 
 
-#==============================================================================
+# =============================================================================
 class TestSyslogTestcase(PbLoggingTestcase):
 
-    #--------------------------------------------------------------------------
+    # -------------------------------------------------------------------------
     def setUp(self):
 
         mb_chars = 'äöüÄÖÜß»«¢„“”µ·…@ł€¶ŧ←↓→øþ¨æſðđŋħłĸ˝^'
@@ -50,7 +50,7 @@ class TestSyslogTestcase(PbLoggingTestcase):
         log.debug("self.msg_utf8 (%s): %r", self.msg_utf8.__class__.__name__, self.msg_utf8)
         log.debug("self.msg_uni (%s): %r", self.msg_uni.__class__.__name__, self.msg_uni)
 
-    #--------------------------------------------------------------------------
+    # -------------------------------------------------------------------------
     def test_import_modules(self):
 
         log.info("Test importing all appropriate modules ...")
@@ -64,7 +64,7 @@ class TestSyslogTestcase(PbLoggingTestcase):
         log.debug("Importing UnixSyslogHandler from pb_logging.unix_handler ...")
         from pb_logging.unix_handler import UnixSyslogHandler               # noqa
 
-    #--------------------------------------------------------------------------
+    # -------------------------------------------------------------------------
     @unittest.skipUnless(os.path.exists('/dev/log'), "Socket '/dev/log' must exist.")
     def test_logging_syslog(self):
 
@@ -107,7 +107,7 @@ class TestSyslogTestcase(PbLoggingTestcase):
         log.debug("Logging an unicode message with wide characters ...")
         test_logger.info(self.msg_uni)
 
-    #--------------------------------------------------------------------------
+    # -------------------------------------------------------------------------
     def test_unix_syslog(self):
 
         log.info("Test logging with UnixSyslogHandler ...")
@@ -149,8 +149,8 @@ class TestSyslogTestcase(PbLoggingTestcase):
         log.debug("Logging an unicode message with wide characters ...")
         test_logger.info(self.msg_uni)
 
-#==============================================================================
 
+# =============================================================================
 if __name__ == '__main__':
 
     verbose = get_arg_verbose()
@@ -172,6 +172,6 @@ if __name__ == '__main__':
     result = runner.run(suite)
 
 
-#==============================================================================
+# =============================================================================
 
 # vim: tabstop=4 expandtab shiftwidth=4 softtabstop=4
