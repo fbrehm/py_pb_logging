@@ -1,3 +1,9 @@
+pb-logging (0.5.5) all; urgency=low
+
+  * Minor changes for newer Python3
+
+ -- Frank Brehm <frank@brehm-online.com>  Tue, 12 Jun 2018 21:47:11 +0200
+
 pb-logging (0.5.4) all; urgency=low
 
   * Applying Flake8 rules
